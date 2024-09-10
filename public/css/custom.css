@@ -1,0 +1,4 @@
+body{background-color:#9fc5f8};
+#copyright{user-select: none;}
+#tombol{background-color: #9900ff; color: antiquewhite;}
+#tombol:hover{background-color: #9fc5f8;}
