@@ -1,3 +1,5 @@
+
+
 $(document).ready(function() {
       $(".password-toggle").click(function() {
         const passwordInput = $("#floatingPassword");
@@ -14,3 +16,5 @@ $(document).ready(function() {
         }
       });
     });
+
+// BARU
