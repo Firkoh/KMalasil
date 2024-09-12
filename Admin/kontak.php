@@ -1,29 +1,32 @@
 <?php include 'partials/head.html'?>
- <div class="bg-primary border border-2">
+  <div class="bg-primary border border-2">
     <div class="container">
       <div class="row">
           <nav class="nav justify-content-end">
             <a href="#" class="nav-link nav-fill" style="color: azure;">Log Out</a>
           </nav>
-        <div class="col-md-10 offset-md-1 pl-3 pt-5 col-10">
-          <h3 class="text-center">Kelurahan Malasilen</h3>
+        <div class="col-md-10 offset-md-1 col-10">
+          <h3 class="text-center">Admin Kelurahan Malasilen</h3>
         </div>
       </div>
     </div>
   </div>
+
 <!-- pemisah  -->
   <div class="container-fluid mt-2">
     <div class="row">
+  
+<!-- sidebar -->
       <div class="col-md-3 col-12">
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary border border-2">
           <div class="container text-center">
             <div class="row">
               <div class="col">
-                <a href="homes.php">
+                <a href="#">
                   <i class="bi bi-person-circle" style="font-size: 300%;"></i>
                 </a>
               </div>
-              <a href="homes.php" class="">
+              <a href="#" class="">
                 <strong style="font-size: 18px;">Admin</strong>
               </a>
             </div>
@@ -33,44 +36,50 @@
           <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
               <a href="homes.php" class="nav-link" aria-current="page">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="home"/></svg>
+<i class="bi bi-house me-2"></i>
                 Dashboard
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link active link-body-emphasis">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+              <a href="sejarah.php" class="nav-link link-body-emphasis">
+                <i class="bi bi-clock-history me-2"></i>
                 Sejarah Kelurahan
               </a>
             </li>
             <li>
   
-              <a href="informasi.php" class="nav-link link-body-emphasis">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+              <a href="informasi.php" class="nav-link link-body-emphasis  ">
+                <i class="bi bi-newspaper me-2"></i>
                 Informasi Kelurahan
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link link-body-emphasis">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+              <a href="penduduk.php" class="nav-link link-body-emphasis">
+                <i class="bi bi-people me-2"></i>
                 Data penduduk
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link link-body-emphasis">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+              <a href="rt.php" class="nav-link link-body-emphasis">
+                <i class="bi bi-bar-chart-line me-2"></i>
                 Data RT/RW
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link link-body-emphasis">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+              <a href="Plurah.php" class="nav-link link-body-emphasis">
+                <i class="bi bi-bar-chart-line me-2"></i>
+                Perangkat Kelurahan
+              </a>
+            </li>
+            <li>
+              <a href="galeri.php" class="nav-link link-body-emphasis">
+               <i class="bi bi-file-image me-2"></i>
                 Galeri
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link link-body-emphasis">
-                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+              <a href="#" class="nav-link link-body-emphasis active">
+                <i class="bi bi-person-lines-fill me-2"></i>
                 Kontak
               </a>
             </li>
@@ -78,46 +87,76 @@
           <hr>
         </div>
       </div>
-   <div class="col-md-9 col-12">
-<div class="row">
-  <div class="col-md-6 col-12">
-    <h2 class="display-6 text-center">lorem<?php ?></h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nihil asperiores veritatis vero ipsa! Fuga non itaque cum, eaque animi aspernatur praesentium voluptatem voluptatibus numquam repellendus. Omnis tenetur accusantium quam saepe fugit asperiores, magnam ex velit rem aliquam ad nihil soluta quod harum ipsum nulla mollitia nam iusto, corrupti eum? Similique, sunt optio maiores est dolorum at culpa fuga illum praesentium. Quod, et! Illo rem omnis voluptates, eveniet minima perferendis veniam similique unde dolor esse, sit autem. Sed ipsa magnam placeat voluptas rerum illo totam reprehenderit iure, inventore animi molestias, doloribus error numquam quos dolores incidunt nisi. Laboriosam, labore aperiam!<?php ?></p>
- 
-  </div>
-  <div class="col-md-6 col-12">
 
-<div class="form-container mt-5">
-  <div class="form-title mb-3">Tambah Data Kelurahan</div>
+
+<div class="col-md-9 col-12">
+  <div class="row">
+<div class="col-md-6 col-12 border border-2">
+    <h2 class="display-6 text-center">Kontak<?php ?></h2>
+        <table class="table table-borderless mt-4 fs-5">
+            <tbody>
+                <tr>
+                    <td class="text-end">Telepon :</td>
+                    <td class="text-start text-decoration-underline"><?php ?></td>
+                </tr>
+                <tr>
+                    <td class="text-end">Email :</td>
+                    <td class="text-start text-decoration-underline"><?php ?></td>
+                </tr>
+                <tr>
+                    <td class="text-end">WhatsApp :</td>
+                    <td class="text-start text-decoration-underline"><?php ?></td>
+                </tr>
+                <tr>
+                    <td class="text-end">Instagram :</td>
+                    <td class="text-start text-decoration-underline"><?php ?></td>
+                </tr>
+                <tr>
+                    <td class="text-end">Facebook :</td>
+                    <td class="text-start text-decoration-underline"><?php ?></td>
+                </tr>
+                <tr>
+                    <td class="text-end">Youtube :</td>
+                    <td class="text-start text-decoration-underline"><?php ?></td>
+                </tr>
+            </tbody>
+        </table>
+  </div>
+
+  <div class="col-md-6 col-12 border border-2">
+<div class="form-container mt-3">
+  <div class="form-title mb-3">Kontak Kelurahan</div>
   <div class="form-subtitle mb-3">Isikan data dengan lengkap</div>
 
   <form>
     <div class="mb-3">
-      <input type="text" class="form-control" placeholder="Nama Kelurahan" required>
+      <input type="text" class="form-control" placeholder="Telepon" required>
     </div>
     <div class="mb-3">
-      <input type="text" class="form-control" placeholder="RT/RW" required>
+      <input type="text" class="form-control" placeholder="Email" required>
     </div>
     <div class="mb-3">
-      <input type="text" class="form-control" placeholder="Distrik" required>
+      <input type="text" class="form-control" placeholder="WhatsApp" required>
     </div>
     <div class="mb-3">
-      <input type="text" class="form-control" placeholder="Kabupaten/Kota" required>
+      <input type="text" class="form-control" placeholder="Instagram" required>
     </div>
     <div class="mb-3">
-      <input type="text" class="form-control" placeholder="Provinsi" required>
+      <input type="text" class="form-control" placeholder="Facebook" required>
     </div>
     <div class="mb-3">
-      <input type="number" class="form-control" placeholder="Jumlah Penduduk" required>
+      <input type="text" class="form-control" placeholder="Youtube" required>
     </div>
-
     <button type="submit" class="btn btn-primary">Ubah</button>
   </form>
 </div>
 </div>
 </div>
+</div>
     </div>
   </div>
+</div>
+</div>
 <?php
 include 'partials/footer.html';
 ?>
