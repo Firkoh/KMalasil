@@ -1,20 +1,18 @@
+import Swal from "sweetalert2";
 
-
-$(document).ready(function() {
-      $(".password-toggle").click(function() {
-        const passwordInput = $("#floatingPassword");
-        const passwordToggleIcon = $(this).find("i");
-
-        if (passwordInput.attr("type") === "password") {
-          passwordInput.attr("type", "text");
-          passwordToggleIcon.removeClass("bi-eye-slash");
-          passwordToggleIcon.addClass("bi-eye-fill");
-        } else {
-          passwordInput.attr("type", "password");
-          passwordToggleIcon.removeClass("bi-eye-fill");
-          passwordToggleIcon.addClass("bi-eye-slash");
-        }
-      });
-    });
-
-// BARU
+function hapus() {
+    Swal.fire({
+  title: "Apakah Kamu Yakin Inggin Mengghapus Ini",
+  showDenyButton: true,
+  showCancelButton: true,
+  confirmButtonText: "Save",
+  denyButtonText: `Don't save`
+}).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+    Swal.fire("Saved!", "", "success");
+  } else if (result.isDenied) {
+    Swal.fire("Changes are not saved", "", "info");
+  }
+});
+}

@@ -97,7 +97,7 @@
         <div class="card-body">
         <h5 class="card-title">Judul Kartu</h5>
         <button class="btn btn-warning">Edit</button>
-        <button class="btn btn-danger">Hapus</button>
+        <button class="btn btn-danger" onclick="hapus()">Hapus</button>
 
         </div>
       </div>
@@ -124,4 +124,19 @@
     </div>
   </div>
   </div>
+<script>
+function hapus() {
+    Swal.fire({
+  title: "Apakah Kamu Yakin Inggin Mengghapus Gambar Ini",
+  showCancelButton: true,
+  confirmButtonText: "Hapus",
+  cancelButtonText: "Batal"
+}).then((result) => {
+
+  if (result.isConfirmed) {
+    Swal.fire("Di Hapus", "gagal");
+  }
+});
+}
+</script>
   <?php include 'partials/footer.html'?>

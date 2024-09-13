@@ -1,3 +1,5 @@
+
+
 <?php include 'partials/head.html'?>
  <div class="bg-primary border border-2">
     <div class="container">
@@ -11,8 +13,6 @@
       </div>
     </div>
   </div>
-
-
   <div class="container-fluid mt-2">
     <div class="row">
 
@@ -99,21 +99,43 @@
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
-                    <th>id</th>
-                    <th>Jumlah KK</th>
-                    <th>jumlah Penduduk</th>
+                    <th>ID</th>
+                    <th>RT</th>
+                    <th>RW</th>
+                    <th>Jumlah Penduduk</th>
                     <th colspan="2" class="text-center">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-              
-                    <td><button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info">edit</button></td>
-                    <td><button style="font-size: 10px; padding: 2px 5px;  height: 20px; width: 40px;" class="btn btn-danger">hapus</button></td>
-                  </tr>
+                   <?php
+include "../service/basisdata.php";
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT * FROM rtrw ORDER BY id ASC";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        ?>
+        <tr>
+              <td><?php echo $row['id']; ?></td>
+            <td><?php echo $row['rt']; ?></td>
+            <td><?php echo $row['rw']; ?></td>
+            <td><?php echo $row['jumlah_penduduk']; ?></td>
+            <td>
+               <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info" data-toggle="modal" data-target="#editModal" data-id="<?php echo $row['id']; ?>">Edit</button>
+            </td>
+            <td>
+                <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-danger" onclick="hapus()">Hapus</button>
+            </td>
+        </tr>
+        <?php
+    }
+}
+?>
                 </tbody>
               </table>
             </div>

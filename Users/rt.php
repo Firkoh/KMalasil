@@ -81,10 +81,29 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>halo</td>
-                    <td>halo</td>
-                  </tr>
+                   <?php
+include "../service/basisdata.php";
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT * FROM rtrw ORDER BY id ASC";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        ?>
+        <tr>
+              <td><?php echo $row['id']; ?></td>
+            <td><?php echo $row['rt']; ?></td>
+            <td><?php echo $row['rw']; ?></td>
+            <td><?php echo $row['jumlah_penduduk']; ?></td>
+        </tr>
+        <?php
+    }
+}
+?>
                 </tbody>
               </table>
             </div>

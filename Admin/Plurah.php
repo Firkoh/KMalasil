@@ -1,3 +1,12 @@
+
+<?php 
+if (!isset($_SESSION)) {
+    session_start(); // Mulai sesi jika belum aktif
+}
+
+include '../service/basisdata.php';
+
+?>
 <?php include 'partials/head.html'?>
  <div class="bg-primary border border-2">
     <div class="container">
@@ -104,7 +113,7 @@
                     <th>Agama</th>
                     <th>Tempat Lhr</th>
                     <th>Tanggal_Lhr</th>
-                    <th>Jns Kelamin</th>
+                    <th>Jenis Kelamin</th>
                     <th>Gol Darah</th>
                     <th>Pendidikan</th>
                     <th>Jabatan</th>
@@ -112,20 +121,40 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td><button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info">edit</button></td>
-                    <td><button style="font-size: 10px; padding: 2px 5px;  height: 20px; width: 40px;" class="btn btn-danger">hapus</button></td>
-                  </tr>
+                  <?php
+include "../service/basisdata.php";
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT * FROM plurah ORDER BY Nip ASC";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        ?>
+        <tr>
+              <td><?php echo $row['Nip']; ?></td>
+            <td><?php echo $row['Nama']; ?></td>
+            <td><?php echo $row['Agama']; ?></td>
+            <td><?php echo $row['Tempat_Lhr']; ?></td>
+            <td><?php echo $row['Tanggal_Lhr']; ?></td>
+            <td><?php echo $row['Jns_Kelamin']; ?></td>
+            <td><?php echo $row['Gol_Darah']; ?></td>
+            <td><?php echo $row['Pendidikan']; ?></td>
+            <td><?php echo $row['Jabatan']; ?></td>
+            <td>
+                <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info" data-toggle="modal" data-target="#editModal" data-id="<?php echo $row['Nip']; ?>">Edit</button>
+            </td>
+            <td>
+                <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-danger" onclick="hapus(<?php echo $row['Nip']; ?>)">Hapus</button>
+            </td>
+        </tr>
+        <?php
+    }
+}
+?>
                 </tbody>
               </table>
             </div>
@@ -181,5 +210,19 @@
 </div>
     </div>
   </div>
+<script>
+function hapus() {
+    Swal.fire({
+  title: "Apakah Kamu Yakin Inggin Mengghapus Ini",
+  showCancelButton: true,
+  confirmButtonText: "Hapus",
+  cancelButtonText: "Batal"
+}).then((result) => {
 
+  if (result.isConfirmed) {
+    Swal.fire("Di Hapus", "");
+  }
+});
+}
+</script>
 <?php include 'partials/footer.html'?>

@@ -1,3 +1,11 @@
+<?php 
+if (!isset($_SESSION)) {
+    session_start(); // Mulai sesi jika belum aktif
+}
+
+include '../service/basisdata.php';
+
+?>
 <?php include 'partials/head.html'?>
 
 
@@ -41,7 +49,7 @@
     </a>
   </li>
   <li class="nav-item">
-    <a href="sejarah.php" class="nav-link active link-body-emphasis">
+    <a href="#" class="nav-link active link-body-emphasis">
       <i class="bi bi-clock-history me-2"></i>
       Sejarah Kelurahan
     </a>
@@ -80,14 +88,34 @@
           <hr>
         </div>
       </div>
+    <?php
+include '../service/basisdata.php';
+$sql = "SELECT * FROM visi_misi LIMIT 2";
+$result = $conn->query($sql);
 
-   <div class="col-md-9 col-12 ">
-<div class="row">
-  <div class="col-md-7 col-12 border border-1">
-    <h2 class="display-6 text-center">lorem<?php ?></h2>
-    <p><?php ?> ipsum dolor sit amet consectetur adipisicing elit. Harum nihil asperiores veritatis vero ipsa! Fuga non itaque cum, eaque animi aspernatur praesentium voluptatem voluptatibus numquam repellendus. Omnis tenetur accusantium quam saepe fugit asperiores, magnam ex velit rem aliquam ad nihil soluta quod harum ipsum nulla mollitia nam iusto, corrupti eum? Similique, sunt optio maiores est dolorum at culpa fuga illum praesentium. Quod, et! Illo rem omnis voluptates, eveniet minima perferendis veniam similique unde dolor esse, sit autem. Sed ipsa magnam placeat voluptas rerum illo totam reprehenderit iure, inventore animi molestias, doloribus error numquam quos dolores incidunt nisi. Laboriosam, labore aperiam!<?php ?></p>
- 
-  </div>
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $id = $row['Visi_Id'];
+    $jdlsjr = $row['judul_sejarah'];
+    $ISI = $row['ISI'];
+    $VISI = $row['Visi'];
+    $MISI = $row['Misi'];
+    $TGL = $row['Tanggal_Update'];
+} else {
+    echo "<p class='text-center'>Informasi sejarah tidak ditemukan.</p>";
+}
+?>
+
+<div class="col-md-7 col-12 border border-1">
+    <h2 class="display-6 text-center"><?php echo $jdlsjr; ?></h2>
+    <p><?php echo $ISI; ?></p>
+    <h2 class="display-6 text-center">Visi</h2>
+    <p><?php echo $VISI; ?></p>
+    <h2 class="display-6 text-center">Misi</h2>
+    <p><?php echo $MISI; ?></p>
+    <p><i>Tanggal Update : <?php echo $TGL; ?></i>></p>
+</div>
+
   <div class="col-md-5 col-12 border border-1">
 
 <div class="form-container mt-5">

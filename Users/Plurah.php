@@ -85,13 +85,34 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>halo</td>
-                        <td>halo</td>
-                        <td>halo</td>
-                        <td>halo</td>
-                    
-                    </tr>
+                    <?php
+include "../service/basisdata.php";
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT * FROM plurah ORDER BY Nip ASC";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        ?>
+        <tr>
+              <td><?php echo $row['Nip']; ?></td>
+            <td><?php echo $row['Nama']; ?></td>
+            <td><?php echo $row['Agama']; ?></td>
+            <td><?php echo $row['Tempat_Lhr']; ?></td>
+            <td><?php echo $row['Tanggal_Lhr']; ?></td>
+            <td><?php echo $row['Jns_Kelamin']; ?></td>
+            <td><?php echo $row['Gol_Darah']; ?></td>
+            <td><?php echo $row['Pendidikan']; ?></td>
+            <td><?php echo $row['Jabatan']; ?></td>
+        </tr>
+        <?php
+    }
+}
+?>
                     </tbody>
                 </table>
                 </div>

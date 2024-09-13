@@ -1,43 +1,3 @@
-<?php
-if (!isset($_SESSION)) {
-    session_start(); // Mulai sesi jika belum aktif
-}
-
-include "service/basisdata.php";
-
-// Proses Login
-if (isset($_POST['login'])) {
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']); 
-    $hashPass=hash("sha256",$password);
-
-    $sele = $conn->prepare("SELECT * FROM admin WHERE username = ? AND password = ?");
-    $sele->bind_param("ss", $username, $password);
-    $sele->execute();
-    $result = $sele->get_result();
-
-    if ($result->num_rows > 0) {
-
-        $row = $result->fetch_assoc();
-        $_SESSION['login'] = true; 
-        $_SESSION['username'] = $row['username']; // Simpan username dalam sesi
-        $_SESSION['id'] = $row['id']; // Simpan ID pengguna dalam sesi
-        header("Location: Admin/homes.php"); // Arahkan ke dasbor
-        exit;
-    } else {
-        $_SESSION['error'] = "Username atau password salah"; // Simpan pesan kesalahan dalam sesi
-    }
-
-    $sele->close();
-}
-// Proses Logout 
-if (isset($_GET['logout'])) {
-    session_destroy(); // Hancurkan sesi
-    header("Location: login.php");
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -62,12 +22,6 @@ if (isset($_GET['logout'])) {
           <div class="card-body">
             <h1 class="h3 mb-3 fw-normal text-center">Admin Login</h1>
 
-            <?php if (isset($_SESSION['error'])): ?>
-                <div class="alert alert-danger" role="alert">
-                    <?= $_SESSION['error'] ?>
-                </div>
-            <?php endif; ?>
-
             <form action="index.php" method="post">
               <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" required>
@@ -81,27 +35,12 @@ if (isset($_GET['logout'])) {
                 </span>
               <button class="btn w-100" id="tombol" type="submit">Login</button>
               </div>
-
-<!-- logika salah Password -->
-                <?php if (isset($_SESSION['error'])) { ?>
-                        <div class="alert alert-danger" role="alert" id="error-message">
-                            <?= $_SESSION['error'] ?>
-                        </div>
-                        <?php unset($_SESSION['error']); ?> <!-- Hapus pesan kesalahan dari sesi -->
-                        <script>
-                            setTimeout(function() {
-                                document.getElementById("error-message").style.display = "none";
-                            }, 3000); // Hide error message after 3 seconds
-                        </script>
-                    <?php } ?>
             </form>
           </div>
         </div>
       </div>
     </div>
   </main>
-<!-- sweet alert -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

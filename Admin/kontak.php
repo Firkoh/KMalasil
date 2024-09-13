@@ -1,3 +1,11 @@
+<?php 
+if (!isset($_SESSION)) {
+    session_start(); // Mulai sesi jika belum aktif
+}
+
+include '../service/basisdata.php';
+
+?>
 <?php include 'partials/head.html'?>
   <div class="bg-primary border border-2">
     <div class="container">

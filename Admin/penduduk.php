@@ -1,3 +1,12 @@
+<?php 
+if (!isset($_SESSION)) {
+    session_start(); // Mulai sesi jika belum aktif
+}
+
+include '../service/basisdata.php';
+
+?>
+
 <?php include 'partials/head.html'?>
  <div class="bg-primary border border-2">
     <div class="container">
@@ -113,20 +122,41 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td><button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info">edit</button></td>
-                    <td><button style="font-size: 10px; padding: 2px 5px;  height: 20px; width: 40px;" class="btn btn-danger">hapus</button></td>
-                  </tr>
+              <?php
+include "../service/basisdata.php";
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT * FROM penduduk ORDER BY Nik ASC";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        ?>
+        <tr>
+              <td><?php echo $row['Nik']; ?></td>
+            <td><?php echo $row['Nama']; ?></td>
+            <td><?php echo $row['Agama']; ?></td>
+            <td><?php echo $row['Tempat_Lhr']; ?></td>
+            <td><?php echo $row['Tanggal_Lhr']; ?></td>
+            <td><?php echo $row['Jenis_Kelamin']; ?></td>
+            <td><?php echo $row['Gol_Darah']; ?></td>
+            <td><?php echo $row['Pendidikan']; ?></td>
+            <td><?php echo $row['Pekerjaan']; ?></td>
+            <td><?php echo $row['Status']; ?></td>
+            <td>
+                <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info" data-toggle="modal" data-target="#editModal" data-id="<?php echo $row['Nik']; ?>">Edit</button>
+            </td>
+            <td>
+                <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-danger" onclick="hapus(<?php echo $row['Nik']; ?>)">Hapus</button>
+            </td>
+        </tr>
+        <?php
+    }
+}
+?>
                 </tbody>
               </table>
             </div>
@@ -150,7 +180,7 @@
                 <input type="text" class="form-control" placeholder="Tempat Lhr">
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Tanggal_Lhr">
+                <input type="date" class="form-control" id="tanggal_lhr" placeholder="Tanggal Lhr" required min="1940-01-01" max="2006-12-31">
             </div>
             <div class="mb-3">
                 <input type="text" class="form-control" placeholder="Jns Kelamin">
@@ -175,4 +205,19 @@
     </div>
   </div>
 
+<script>
+function hapus(Nik) {
+    Swal.fire({
+  title: "Apakah Kamu Yakin Inggin Mengghapus Ini",
+  showCancelButton: true,
+  confirmButtonText: "Hapus",
+  cancelButtonText: "Batal"
+}).then((result) => {
+
+  if (result.isConfirmed) {
+    Swal.fire("Di Hapus", "");
+  }
+});
+}
+</script>
 <?php include 'partials/footer.html'?>

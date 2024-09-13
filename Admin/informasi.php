@@ -1,3 +1,12 @@
+<?php 
+if (!isset($_SESSION)) {
+    session_start(); // Mulai sesi jika belum aktif
+}
+
+include '../service/basisdata.php';
+
+?>
+
 <?php include 'partials/head.html'?>
  <div class="bg-primary border border-2">
     <div class="container">
@@ -89,47 +98,59 @@
       </div>
 
 <!-- ini tabel informasi kelurahan -->
-   <div class="col-md-9 col-12 ">
-<div class="row">
-  <div class="col-md-7 col-12 border border-2">
-    <h2 class="display-7 text-center">Tabel Informasi Kelurahan</h2>
-  
-<div class="table-responsive" style="font-size: 60%; height: 400px; overflow-y: auto;">
-              <table class="table table-striped table-hover">
-                <thead>
-                  <tr>
-                    <th>Nama Kelurahan</th>
-                    <th>RT/RW</th>
-                    <th>Distrik</th>
-                    <th>Kabupaten/Kota</th>
-                    <th>Provinsi</th>
-                    <th>Jumlah Penduduk</th>
-                    <th colspan="2" class="text-center">Aksi</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td>halo</td>
-                    <td><button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info">edit</button></td>
-                    <td><button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-danger">hapus</button></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-  </div>
-
-
+<div class="col-md-9 col-12 ">
+  <div class="row">
+    <div class="col-md-7 col-12 border border-2">
+      <h2 class="display-7 text-center">Tabel Informasi Kelurahan</h2>
+      
+      <div class="table-responsive" style="font-size: 60%; height: 400px; overflow-y: auto;">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Nama Kelurahan</th>
+              <th>RT/RW</th>
+              <th>Distrik</th>
+              <th>Kabupaten/Kota</th>
+              <th>Provinsi</th>
+              <th>Jumlah Penduduk</th>
+              <th colspan="2" class="text-center">Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $sql = "SELECT * FROM kelurahan ORDER BY id ASC";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    ?>
+                    <tr>
+                      <td><?php echo $row['Nama_Kelurahan']; ?></td>
+                      <td><?php echo $row['RT_RW']; ?></td>
+                      <td><?php echo $row['Distrik']; ?></td>
+                      <td><?php echo $row['Kabupaten_Kota']; ?></td>
+                      <td><?php echo $row['Provinsi']; ?></td>
+                      <td><?php echo $row['Jumlah_Penduduk']; ?></td>
+                      <td>
+                        <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info" data-toggle="modal" data-target="#editModal">edit</button>
+                      </td>
+                      <td>
+                         <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-danger" onclick="hapus()">Hapus</button>
+                      </td>
+                    </tr>
+                    <?php
+                }
+            }
+            ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
   <div class="col-md-5 col-12 border border-2" style="height:500px; overflow-x: auto;">
 <div class="form-container mt-5">
   <div class="form-title mb-3">Tambah Data Kelurahan</div>
   <div class="form-subtitle mb-3">Isikan data dengan lengkap</div>
 
-  <form>
+  <form method="post" action="Aksi/Tambahinformasi.php" enctype="multipart/form-data">
     <div class="mb-3">
       <input type="text" class="form-control" placeholder="Nama Kelurahan" required>
     </div>
@@ -146,9 +167,9 @@
       <input type="text" class="form-control" placeholder="Provinsi" required>
     </div>
     <div class="mb-3">
-      <input type="number" class="form-control" placeholder="Jumlah Penduduk" required>
+      <input type="number" class="form-control" onclick="ubah()" placeholder="Jumlah Penduduk" required>
     </div>
-    <button type="submit" class="btn btn-primary">Tambah</button>
+    <button type="submit" class="btn btn-primary" >Tambah</button>
   </form>
 </div>
 </div>
@@ -156,4 +177,24 @@
     </div>
   </div>
 
+<script>
+
+
+
+
+// funggsi hapus
+function hapus() {
+    Swal.fire({
+  title: "Apakah Kamu Yakin Inggin Mengghapus Ini",
+  showCancelButton: true,
+  confirmButtonText: "Hapus",
+  cancelButtonText: "Batal"
+}).then((result) => {
+
+  if (result.isConfirmed) {
+    Swal.fire("Di Hapus", "");
+  }
+});
+}
+</script>
 <?php include 'partials/footer.html'?>
