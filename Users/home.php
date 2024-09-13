@@ -80,14 +80,12 @@
       <hr class="my-4">
       <p>tentang </p>
 <div class="m-2">
-      <a href=""><button class="btn btn-primary btn-lg" type="button">Sejarah Kelurahan</button></a>
-      <a href=""><button class="btn btn-primary btn-lg mx-2" type="button">Informasi kelurahan</button></a>
-      <a href=""><button class="btn btn-primary btn-lg" type="button">Data Penduduk</button></a>
+      <a href="sejarah.php"><button class="btn btn-primary btn-lg" type="button">Sejarah Kelurahan</button></a>
+      <a href="informasi.php"><button class="btn btn-primary btn-lg mx-2" type="button">Informasi kelurahan</button></a>
 </div>
-      <a href=""><button class="btn btn-primary btn-lg me-2" type="button">Data RT/RW</button></a>
-      <a href=""><button class="btn btn-primary btn-lg me-2" type="button">Peranggkat Kelurahan</button></a>
-      <a href=""><button class="btn btn-primary btn-lg me-2" type="button">Kantor </button></a>
-      <a href=""><button class="btn btn-primary btn-lg" type="button">Kontak</button></a>
+      <a href="rt.php"><button class="btn btn-primary btn-lg me-2" type="button">Data RT/RW</button></a>
+      <a href="Plurah.php"><button class="btn btn-primary btn-lg me-2" type="button">Peranggkat Kelurahan</button></a>
+      <a href="kontak.php"><button class="btn btn-primary btn-lg" type="button">Kontak</button></a>
     
     </div>
   </div>

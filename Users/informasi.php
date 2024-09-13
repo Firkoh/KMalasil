@@ -20,7 +20,7 @@
                     <hr>
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="nav-item">
-                            <a href="homes.php" class="nav-link link-body-emphasis" aria-current="page">
+                            <a href="home.php" class="nav-link link-body-emphasis" aria-current="page">
                                 <i class="bi bi-house me-2"></i>
                                 Dashboard
                             </a>

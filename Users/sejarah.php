@@ -40,12 +40,7 @@
       Informasi Kelurahan
     </a>
   </li>
-  <li>
-    <a href="penduduk.php" class="nav-link link-body-emphasis">
-      <i class="bi bi-people me-2"></i>
-      Data penduduk
-    </a>
-  </li>
+ 
   <li>
     <a href="rt.php" class="nav-link link-body-emphasis">   
       <i class="bi bi-bar-chart-line me-2"></i>

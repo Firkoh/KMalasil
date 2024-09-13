@@ -17,25 +17,13 @@
     <div class="row">
   
 <!-- sidebar -->
+
       <div class="col-md-3 col-12">
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary border border-2">
-          <div class="container text-center">
-            <div class="row">
-              <div class="col">
-                <a href="homes.php">
-                  <i class="bi bi-person-circle" style="font-size: 300%;"></i>
-                </a>
-              </div>
-              <a href="homes.php" class="">
-                <strong style="font-size: 18px;">Admin</strong>
-              </a>
-            </div>
-          </div>
-  
           <hr>
           <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-              <a href="homes.php" class="nav-link link-body-emphasis" aria-current="page">
+              <a href="home.php" class="nav-link link-body-emphasis" aria-current="page">
 <i class="bi bi-house me-2"></i>
                 Dashboard
               </a>
@@ -51,12 +39,6 @@
               <a href="informasi.php" class="nav-link link-body-emphasis  ">
                 <i class="bi bi-newspaper me-2"></i>
                 Informasi Kelurahan
-              </a>
-            </li>
-            <li>
-              <a href="penduduk.php" class="nav-link link-body-emphasis">
-                <i class="bi bi-people me-2"></i>
-                Data penduduk
               </a>
             </li>
             <li>
@@ -92,7 +74,7 @@
 <div class="col-md-9 col-12">
   <div class="row me-1">
 <div class="col-md-12 col-12 border border-2">
-    <h2 class="display-6 text-center">Kontak Kami <?php ?></h2>
+    <h2 class="display-8 text-center">Kontak Kami <?php ?></h2>
         <table class="table table-borderless mt-4 fs-5">
             <tbody>
                 <th>
