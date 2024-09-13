@@ -22,11 +22,11 @@
           <div class="container text-center">
             <div class="row">
               <div class="col">
-                <a href="#">
+                <a href="homes.php">
                   <i class="bi bi-person-circle" style="font-size: 300%;"></i>
                 </a>
               </div>
-              <a href="#" class="">
+              <a href="homes.php" class="">
                 <strong style="font-size: 18px;">Admin</strong>
               </a>
             </div>
@@ -35,7 +35,7 @@
           <hr>
           <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-              <a href="homes.php" class="nav-link" aria-current="page">
+              <a href="homes.php" class="nav-link link-body-emphasis" aria-current="page">
 <i class="bi bi-house me-2"></i>
                 Dashboard
               </a>

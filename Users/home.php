@@ -8,7 +8,7 @@
             <a href="#" class="nav-link nav-fill" style="color: azure;">Log Out</a>
           </nav>
         <div class="col-md-10 offset-md-1 col-10">
-          <h3 class="text-center">Admin Kelurahan Malasilen</h3>
+          <h3 class="text-center">Kelurahan Malasilen</h3>
         </div>
       </div>
     </div>
@@ -20,22 +20,9 @@
 <!-- sidebar -->
       <div class="col-md-3 col-12">
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary border border-2">
-          <div class="container text-center">
-            <div class="row">
-              <div class="col">
-                <a href="homes.php">
-                  <i class="bi bi-person-circle" style="font-size: 300%;"></i>
-                </a>
-              </div>
-              <a href="homes.php" class="">
-                <strong style="font-size: 18px;">Admin</strong>
-              </a>
-            </div>
-          </div>
-  
-          <hr>
           <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
+    <hr>
               <a href="#" class="nav-link active" aria-current="page">
 <i class="bi bi-house me-2"></i>
                 Dashboard
@@ -54,12 +41,7 @@
                 Informasi Kelurahan
               </a>
             </li>
-            <li>
-              <a href="penduduk.php" class="nav-link link-body-emphasis">
-                <i class="bi bi-people me-2"></i>
-                Data penduduk
-              </a>
-            </li>
+           
             <li>
               <a href="rt.php" class="nav-link link-body-emphasis">
                 <i class="bi bi-bar-chart-line me-2"></i>
@@ -86,17 +68,27 @@
             </li>
           </ul>
           <hr>
+<div class="mb-5"></div>
         </div>
       </div>
 
-   <div class="col-md-9 col-12 border border-2">
-  <div class="container my-5 pt-5"> <!-- added pt-5 class -->
+   <div class="col-md-9 col-12 ">
+  <div class=" d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary border border-2"> <!-- added pt-5 class -->
     <div class="p-5 text-center bg-body-tertiary rounded-3">
       <h1 class="display-4">Selamat Datang <?php  ?></h1>
       <p class="lead">Kantor kelurahan memiliki</p>
       <hr class="my-4">
       <p>tentang </p>
-      <button class="btn btn-primary btn-lg" type="button">Belajar</button>
+<div class="m-2">
+      <a href=""><button class="btn btn-primary btn-lg" type="button">Sejarah Kelurahan</button></a>
+      <a href=""><button class="btn btn-primary btn-lg mx-2" type="button">Informasi kelurahan</button></a>
+      <a href=""><button class="btn btn-primary btn-lg" type="button">Data Penduduk</button></a>
+</div>
+      <a href=""><button class="btn btn-primary btn-lg me-2" type="button">Data RT/RW</button></a>
+      <a href=""><button class="btn btn-primary btn-lg me-2" type="button">Peranggkat Kelurahan</button></a>
+      <a href=""><button class="btn btn-primary btn-lg me-2" type="button">Kantor </button></a>
+      <a href=""><button class="btn btn-primary btn-lg" type="button">Kontak</button></a>
+    
     </div>
   </div>
 </div>

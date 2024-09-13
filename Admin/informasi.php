@@ -22,11 +22,11 @@
           <div class="container text-center">
             <div class="row">
               <div class="col">
-                <a href="#">
+                <a href="homes.php">
                   <i class="bi bi-person-circle" style="font-size: 300%;"></i>
                 </a>
               </div>
-              <a href="#" class="">
+              <a href="homes.php" class="">
                 <strong style="font-size: 18px;">Admin</strong>
               </a>
             </div>
@@ -35,7 +35,7 @@
           <hr>
           <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-              <a href="homes.php" class="nav-link" aria-current="page">
+              <a href="homes.php" class="nav-link link-body-emphasis" aria-current="page">
 <i class="bi bi-house me-2"></i>
                 Dashboard
               </a>
@@ -89,9 +89,9 @@
       </div>
 
 <!-- ini tabel informasi kelurahan -->
-   <div class="col-md-9 col-12 border border-1">
+   <div class="col-md-9 col-12 ">
 <div class="row">
-  <div class="col-md-7 col-12">
+  <div class="col-md-7 col-12 border border-2">
     <h2 class="display-7 text-center">Tabel Informasi Kelurahan</h2>
   
 <div class="table-responsive" style="font-size: 60%; height: 400px; overflow-y: auto;">
@@ -124,7 +124,7 @@
   </div>
 
 
-  <div class="col-md-5 col-12" style="height:400px; overflow-x: auto;">
+  <div class="col-md-5 col-12 border border-2" style="height:500px; overflow-x: auto;">
 <div class="form-container mt-5">
   <div class="form-title mb-3">Tambah Data Kelurahan</div>
   <div class="form-subtitle mb-3">Isikan data dengan lengkap</div>

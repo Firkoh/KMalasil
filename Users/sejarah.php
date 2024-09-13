@@ -3,12 +3,12 @@
 
  <div class="bg-primary border border-2">
     <div class="container">
-      <div class="row">
+      <div class="row ">
           <nav class="nav justify-content-end">
             <a href="#" class="nav-link nav-fill" style="color: azure;">Log Out</a>
           </nav>
         <div class="col-md-10 offset-md-1 col-10">
-          <h3 class="text-center">Admin Kelurahan Malasilen</h3>
+          <h3 class="text-center">Kelurahan Malasilen</h3>
         </div>
       </div>
     </div>
@@ -19,23 +19,11 @@
     <div class="row">
      <div class="col-md-3 col-12">
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary border border-2">
-          <div class="container text-center">
-            <div class="row">
-              <div class="col">
-                <a href="homes.php">
-                  <i class="bi bi-person-circle" style="font-size: 300%;"></i>
-                </a>
-              </div>
-              <a href="homes.php" class="">
-                <strong style="font-size: 18px;">Admin</strong>
-              </a>
-            </div>
-          </div>
   
           <hr>
        <ul class="nav nav-pills flex-column mb-auto">
   <li class="nav-item">
-    <a href="homes.php" class="nav-link link-body-emphasis" aria-current="page">
+    <a href="home.php" class="nav-link link-body-emphasis" aria-current="page">
       <i class="bi bi-house me-2"></i>
       Dashboard
     </a>
@@ -59,7 +47,7 @@
     </a>
   </li>
   <li>
-    <a href="rt.php" class="nav-link link-body-emphasis">
+    <a href="rt.php" class="nav-link link-body-emphasis">   
       <i class="bi bi-bar-chart-line me-2"></i>
       Data RT/RW
     </a>
@@ -76,37 +64,18 @@
       Kontak
     </a>
   </li>
-</ul>
           <hr>
         </div>
       </div>
 
-   <div class="col-md-9 col-12 ">
-<div class="row">
-  <div class="col-md-7 col-12 border border-1">
-    <h2 class="display-6 text-center">lorem<?php ?></h2>
+   <div class="col-md-9 col-12">
+<div class="row ">
+  <div class="col-md-7 col-12 border border-2 pb-5">
+    <h2 class="display-6 text-center">Sejarah</h2>
     <p><?php ?> ipsum dolor sit amet consectetur adipisicing elit. Harum nihil asperiores veritatis vero ipsa! Fuga non itaque cum, eaque animi aspernatur praesentium voluptatem voluptatibus numquam repellendus. Omnis tenetur accusantium quam saepe fugit asperiores, magnam ex velit rem aliquam ad nihil soluta quod harum ipsum nulla mollitia nam iusto, corrupti eum? Similique, sunt optio maiores est dolorum at culpa fuga illum praesentium. Quod, et! Illo rem omnis voluptates, eveniet minima perferendis veniam similique unde dolor esse, sit autem. Sed ipsa magnam placeat voluptas rerum illo totam reprehenderit iure, inventore animi molestias, doloribus error numquam quos dolores incidunt nisi. Laboriosam, labore aperiam!<?php ?></p>
- 
   </div>
-  <div class="col-md-5 col-12 border border-1">
-
-<div class="form-container mt-5">
-  <div class="form-title mb-3">Ubah Data Sejarah</div>
-  <div class="form-subtitle mb-3">Isikan data dengan lengkap</div>
-
-  <form>
-    <div class="mb-3">
-      <input type="text" class="form-control" placeholder="Visi" required>
-    </div>
-    <div class="mb-3">
-      <input type="text" class="form-control" placeholder="Judul" required>
-    </div>
-    <div class="mb-3">
-      <input type="text" class="form-control" placeholder="Sejarah" required>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Ubah</button>
-  </form>
+  <div class="col-md-5 col-12 border border-2">
+ <img class="img-thumbnail" src="../gbr/2.jpeg" alt="" width="300" >
 </div>
 </div>
     </div>

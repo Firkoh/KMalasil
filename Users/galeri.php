@@ -8,7 +8,7 @@
               <a href="#" class="nav-link nav-fill" style="color: azure;">Log Out</a>
             </nav>
           <div class="col-md-10 offset-md-1 col-10">
-            <h3 class="text-center">Admin Kelurahan Malasilen</h3>
+            <h3 class="text-center">Kelurahan Malasilen</h3>
           </div>
         </div>
       </div>
@@ -20,18 +20,6 @@
   <!-- sidebar -->
         <div class="col-md-3 col-12">
           <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary border border-2">
-            <div class="container text-center">
-              <div class="row">
-                <div class="col">
-                  <a href="homes.php">
-                    <i class="bi bi-person-circle" style="font-size: 300%;"></i>
-                  </a>
-                </div>
-                <a href="homes.php" class="">
-                  <strong style="font-size: 18px;">Admin</strong>
-                </a>
-              </div>
-            </div>
     
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
@@ -88,40 +76,22 @@
             <hr>
           </div>
         </div>
-<!-- tengah -->
+
+
     <div class="col-md-9 col-12">
-    <div class="row">
-    <div class="col-md-6 col-12 text-center border border-2">
-      <div class="card m-2" style="width: 11rem;">
+  <div class="row me-1">
+    <div class="col-md-12 col-12 text-center border border-2">
+      <div class="card m-2" style="width: 11rem; overflow-y: auto; max-height: 500px;">
         <img alt="Gambar Kartu" class="card-img-top" src="../gbr/2.jpeg"/>
         <div class="card-body">
-        <h5 class="card-title">Judul Kartu</h5>
-        <button class="btn btn-warning">Edit</button>
-        <button class="btn btn-danger">Hapus</button>
-
+          <h5 class="card-title">Judul Kartu</h5>
+          <!-- Add more content here -->
         </div>
       </div>
     </div>
-
-<!-- sebelah kanan -->
-      <div class="col-md-6 col-12 border border-2"  style="height:500px; overflow-x: auto;">
-<div class="form-container mt-5">
-  <div class="form-title mb-3">Tambah Gambar</div>
-  <div class="form-subtitle mb-3">Isikan data dengan lengkap</div>
-
-  <form>
-    <div class="mb-3">
-      <input type="text" class="form-control" placeholder="Judul Gambar" required>
-    </div>
-    <div class="mb-3">
-      <input type="file" class="form-control mb-3" placeholder="Pilih Gambar" required>
-      <button class="btn btn-primary">Tambah Gambar</button>
-    </div>
-  </form>
+  </div>
 </div>
-      </div>
-      </div>
-    </div>
+
   </div>
   </div>
   <?php include 'partials/footer.html'?>

@@ -24,11 +24,11 @@
           <div class="container text-center">
             <div class="row">
               <div class="col">
-                <a href="#">
+                <a href="homes.php">
                   <i class="bi bi-person-circle" style="font-size: 300%;"></i>
                 </a>
               </div>
-              <a href="#" class="">
+              <a href="homes.php" class="">
                 <strong style="font-size: 18px;">Admin</strong>
               </a>
             </div>
@@ -37,7 +37,7 @@
           <hr>
           <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-              <a href="homes.php" class="nav-link" aria-current="page">
+              <a href="homes.php" class="nav-link link-body-emphasis" aria-current="page">
 <i class="bi bi-house me-2"></i>
                 Dashboard
               </a>
@@ -56,7 +56,7 @@
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link link-body-emphasis active">
+              <a href="penduduk.php" class="nav-link link-body-emphasis">
                 <i class="bi bi-people me-2"></i>
                 Data penduduk
               </a>
@@ -68,7 +68,7 @@
               </a>
             </li>
             <li>
-              <a href="Plurah.php" class="nav-link link-body-emphasis">
+              <a href="#" class="nav-link link-body-emphasis active">
                 <i class="bi bi-bar-chart-line me-2"></i>
                 Perangkat Kelurahan
               </a>
@@ -92,14 +92,14 @@
 
    <div class="col-md-9 col-12">
 <div class="row">
-  <div class="col-md-7 col-12">
-    <h2 class="display-7 text-center">Tabel Penduduk</h2>
+  <div class="col-md-7 col-12 border border-2">
+    <h2 class="display-7 text-center">Perangkat Kelurahan</h2>
   
  <div class="table-responsive" style="font-size: 60%; height: 400px; overflow-y: auto;">
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
-                    <th>Nik</th>
+                    <th>Nip</th>
                     <th>Nama</th>
                     <th>Agama</th>
                     <th>Tempat Lhr</th>
@@ -107,8 +107,7 @@
                     <th>Jns Kelamin</th>
                     <th>Gol Darah</th>
                     <th>Pendidikan</th>
-                    <th>Pekerjaan</th>
-                    <th>Status</th>
+                    <th>Jabatan</th>
                     <th colspan="2" class="text-center">Aksi</th>
                   </tr>
                 </thead>
@@ -132,14 +131,14 @@
             </div>
   </div>
 
-  <div class="col-md-5 col-12" style="height:400px; overflow-x: auto;">
+  <div class="col-md-5 col-12 border border-2" style="height:500px; overflow-x: auto;">
 <div class="form-container mt-5">
   <div class="form-title mb-3">Tambah Data Penduduk</div>
   <div class="form-subtitle mb-3">Isikan data dengan lengkap</div>
 
   <form>
     <div class="mb-3">
-      <label for="nik" class="form-label">Nik</label>
+      <label for="nik" class="form-label">Nip</label>
       <input type="text" class="form-control" id="nik" placeholder="Nik" required>
     </div>
     <div class="mb-3">
@@ -156,7 +155,7 @@
     </div>
     <div class="mb-3">
       <label for="tanggal_lhr" class="form-label">Tanggal Lhr</label>
-      <input type="date" class="form-control" id="tanggal_lhr" placeholder="Tanggal Lhr" required>
+      <input type="date" class="form-control" id="tanggal_lhr" placeholder="Tanggal Lhr" required min="1940-01-01" max="2006-12-31">
     </div>
     <div class="mb-3">
       <label for="jns_kelamin" class="form-label">Jns Kelamin</label>
@@ -171,13 +170,10 @@
       <input type="text" class="form-control" id="pendidikan" placeholder="Pendidikan" required>
     </div>
     <div class="mb-3">
-      <label for="pekerjaan" class="form-label">Pekerjaan</label>
+      <label for="pekerjaan" class="form-label">Jabatan</label>
       <input type="text" class="form-control" id="pekerjaan" placeholder="Pekerjaan" required>
     </div>
-    <div class="mb-3">
-      <label for="status" class="form-label">Status</label>
-      <input type="text" class="form-control" id="status" placeholder="Status" required>
-    </div>
+
     <button type="submit" class="btn btn-primary mb-2">Tambah</button>
   </form>
 </div>
