@@ -55,6 +55,7 @@
                 </a>
               </li>
               <li>
+
                 <a href="penduduk.php" class="nav-link link-body-emphasis">
                   <i class="bi bi-people me-2"></i>
                   Data penduduk
@@ -89,32 +90,43 @@
           </div>
         </div>
 <!-- tengah -->
-    <div class="col-md-9 col-12">
-    <div class="row">
-    <div class="col-md-6 col-12 text-center border border-2">
-      <div class="card m-2" style="width: 11rem;">
-        <img alt="Gambar Kartu" class="card-img-top" src="../gbr/2.jpeg"/>
-        <div class="card-body">
-        <h5 class="card-title">Judul Kartu</h5>
-        <button class="btn btn-warning">Edit</button>
-        <button class="btn btn-danger" onclick="hapus()">Hapus</button>
+<div class="col-md-9 col-12">
+<div class="row">
+            <div class="col-md-6 col-12 text-center border border-2 overflow-auto" style="height: 500px;">
+    <?php
+include '../service/basisdata.php';
+    $sql = "SELECT * FROM galeri";
+    $result = $conn->query($sql);
 
-        </div>
-      </div>
-    </div>
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            ?>
+              <div class="card m-2 d-inline-block" style="width: 18rem;">
+                <img alt="Gambar Kartu" class="card-img-top" src="Aksi/<?php echo $row['path_file']; ?>"/>
+                <div class="card-body">
+                <h5 class="card-title"><?php echo $row['nama_gambar']; ?></h5>
+                <button class="btn btn-warning">Edit</button>
+                <button class="btn btn-danger" onclick="hapus(<?php echo $row['id']; ?>)">Hapus</button>
 
+                </div>
+              </div>
+            <?php
+        }
+    }
+    ?>
+            </div>
 <!-- sebelah kanan -->
       <div class="col-md-6 col-12 border border-2"  style="height:500px; overflow-x: auto;">
 <div class="form-container mt-5">
   <div class="form-title mb-3">Tambah Gambar</div>
   <div class="form-subtitle mb-3">Isikan data dengan lengkap</div>
 
-  <form>
+  <form action="Aksi/TambahGaleri.php" method="post" enctype="multipart/form-data">
     <div class="mb-3">
-      <input type="text" class="form-control" placeholder="Judul Gambar" required>
+      <input name="nama_gambar" type="text" class="form-control" placeholder="Nama Gambar" required>
     </div>
     <div class="mb-3">
-      <input type="file" class="form-control mb-3" placeholder="Pilih Gambar" required>
+      <input name="path_file" type="file" class="form-control mb-3" placeholder="Pilih Gambar" required>
       <button class="btn btn-primary">Tambah Gambar</button>
     </div>
   </form>
@@ -124,8 +136,11 @@
     </div>
   </div>
   </div>
+</div>
+</div>
+
 <script>
-function hapus() {
+function hapus(<?php echo $row['id']; ?>) {
     Swal.fire({
   title: "Apakah Kamu Yakin Inggin Mengghapus Gambar Ini",
   showCancelButton: true,
@@ -134,8 +149,12 @@ function hapus() {
 }).then((result) => {
 
   if (result.isConfirmed) {
-    Swal.fire("Di Hapus", "gagal");
-  }
+    Swal.fire("Di Hapus");
+  }else{Swal.fire({
+    icon: 'warning',
+    title: 'Gagal Hapus',
+    text: 'Pastikan Anda telah memilih gambar yang ingin dihapus'
+  });}
 });
 }
 </script>

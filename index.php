@@ -1,3 +1,27 @@
+<?php
+session_start();
+    include 'service/basisdata.php';
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $sql = "SELECT * FROM admin WHERE username = ? AND password = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('ss', $username, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $_SESSION['username'] = $row['username'];
+        header('Location: Admin/homes.php');
+        exit;
+    } else {
+        $error = 'Username atau password salah';
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -8,6 +32,7 @@
   <link rel="stylesheet" href="public/css/custom.css"> 
 </head>
 <body>
+
   <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom bg-primary">
     <a href="/" class="align-items-center mb-3 mb-md-0 col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-4 link-body-emphasis text-decoration-none text-center">
       <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
@@ -22,19 +47,22 @@
           <div class="card-body">
             <h1 class="h3 mb-3 fw-normal text-center">Admin Login</h1>
 
-            <form action="index.php" method="post">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                <input name="username" type="text" class="form-control" id="floatingInput" placeholder="name@example.com" required>
                 <label for="floatingInput">Username</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password required">
+                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password required">
                 <label for="floatingPassword">Password</label>
                 <span class="password-toggle">
                   <i class="bi bi-eye-slash">kojo</i>
                 </span>
               <button class="btn w-100" id="tombol" type="submit">Login</button>
               </div>
+              <?php if (isset($error)) { ?>
+                <p class="text-danger text-center"><?= $error ?></p>
+              <?php } ?>
             </form>
           </div>
         </div>
@@ -50,3 +78,4 @@
   <script src="public/js/script.js"></script>
 </body>
 </html>
+
