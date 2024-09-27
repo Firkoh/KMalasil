@@ -1,7 +1,4 @@
 <?php 
-if (!isset($_SESSION)) {
-    session_start(); // Mulai sesi jika belum aktif
-}
 
 include '../service/basisdata.php';
 
@@ -9,14 +6,12 @@ include '../service/basisdata.php';
 <?php include 'partials/head.html'?>
 
 
+<!-- header -->
  <div class="bg-primary border border-2">
     <div class="container">
       <div class="row">
-          <nav class="nav justify-content-end">
-            <a href="#" class="nav-link nav-fill" style="color: azure;">Log Out</a>
-          </nav>
         <div class="col-md-10 offset-md-1 col-10">
-          <h3 class="text-center">Admin Kelurahan Malasilen</h3>
+          <h3 class="text-center">Kelurahan Malasilen</h3>
         </div>
       </div>
     </div>
@@ -27,18 +22,7 @@ include '../service/basisdata.php';
     <div class="row">
      <div class="col-md-3 col-12">
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary border border-2">
-          <div class="container text-center">
-            <div class="row">
-              <div class="col">
-                <a href="homes.php">
-                  <i class="bi bi-person-circle" style="font-size: 300%;"></i>
-                </a>
-              </div>
-              <a href="homes.php" class="">
-                <strong style="font-size: 18px;">Admin</strong>
-              </a>
-            </div>
-          </div>
+         
   
           <hr>
        <ul class="nav nav-pills flex-column mb-auto">
@@ -108,7 +92,7 @@ if ($result->num_rows > 0) {
 
 <div class="col-md-9 col-12 border border-2">
 <div class="row">
-<div class="col-md-6 col-12 border border-2">
+<div class="col-md-12 col-12 border border-2">
     <h2 class="display-6 text-center"><?php echo $jdlsjr; ?></h2>
     <p><?php echo $ISI; ?></p>
     <h2 class="display-6 text-center">Visi</h2>
@@ -116,9 +100,6 @@ if ($result->num_rows > 0) {
     <h2 class="display-6 text-center">Misi</h2>
     <p><?php echo $MISI; ?></p>
     <p><i>Tanggal Update : <?php echo $TGL; ?></i>></p>
-</div>
-<div class="col-md-6 col-12 border border-2">
-<img src="" alt="" srcset="">
 </div>
 </div>
 </div>

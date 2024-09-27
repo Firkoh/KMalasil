@@ -166,36 +166,40 @@ if ($result->num_rows > 0) {
 <div class="form-container mt-5">
   <div class="form-title mb-3">Tambah Data Penduduk</div>
   <div class="form-subtitle mb-3">Isikan data dengan lengkap</div>
-  <form>
+  <form action="Aksi/TambahPenduduk.php" method="post">
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Nik">
+                <input type="text" class="form-control" placeholder="Nik" name="nik">
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Nama">
+                <input type="text" class="form-control" placeholder="Nama" name="nama">
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Agama">
+                <input type="text" class="form-control" placeholder="Agama" name="agama">
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Tempat Lhr">
+                <input type="text" class="form-control" placeholder="Tempat Lhr" name="tempat_lhr">
             </div>
             <div class="mb-3">
-                <input type="date" class="form-control" id="tanggal_lhr" placeholder="Tanggal Lhr" required min="1940-01-01" max="2006-12-31">
+                <input type="date" class="form-control" id="tanggal_lhr" placeholder="Tanggal Lhr" required min="1940-01-01" max="2006-12-31" name="tanggal_lhr">
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Jns Kelamin">
+                <select class="form-control" name="jenis_kelamin">
+                    <option value="">-- Pilih Jenis Kelamin --</option>
+                    <option value="Laki-laki">Pria</option>
+                    <option value="Perempuan">Wanita</option>
+                </select>
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Gol Darah">
+                <input type="text" class="form-control" placeholder="Gol Darah" name="gol_darah">
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Pendidikan">
+                <input type="text" class="form-control" placeholder="Pendidikan" name="pendidikan">
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Pekerjaan">
+                <input type="text" class="form-control" placeholder="Pekerjaan" name="pekerjaan">
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Status">
+                <input type="text" class="form-control" placeholder="Status" name="status">
             </div>
     <button type="submit" class="btn btn-primary mb-2">Tambah</button>
   </form>

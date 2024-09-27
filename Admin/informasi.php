@@ -104,7 +104,7 @@ include '../service/basisdata.php';
       <h2 class="display-7 text-center">Tabel Informasi Kelurahan</h2>
       
       <div class="table-responsive" style="font-size: 60%; height: 400px; overflow-y: auto;">
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover" id="myTable">
           <thead>
             <tr>
               <th>Nama Kelurahan</th>
@@ -131,10 +131,9 @@ include '../service/basisdata.php';
                       <td><?php echo $row['Provinsi']; ?></td>
                       <td><?php echo $row['Jumlah_Penduduk']; ?></td>
                       <td>
-                        <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info" data-toggle="modal" data-target="#editModal">edit</button>
-                      </td>
+                        <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info" data-toggle="modal" data-target="#editModal" onclick="edit(<?php echo $row['id']; ?>)">edit</button>                      </td>
                       <td>
-                         <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-danger" onclick="hapus()">Hapus</button>
+                         <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-danger" onclick="hapus(<?php $row['id'] ?>)">Hapus</button>
                       </td>
                     </tr>
                     <?php

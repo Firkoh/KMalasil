@@ -1,5 +1,7 @@
 import Swal from "sweetalert2";
 
+
+
 function hapus() {
     Swal.fire({
   title: "Apakah Kamu Yakin Inggin Mengghapus Ini",
@@ -16,3 +18,12 @@ function hapus() {
   }
 });
 }
+
+Swal.fire({
+  title: 'Info',
+  text: 'Data Berhasil di Simpan',
+  icon: 'success',
+  timer: 3000,
+  showConfirmButton: false
+});
+ 

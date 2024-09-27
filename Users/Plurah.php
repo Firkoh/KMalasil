@@ -1,16 +1,14 @@
     <?php include 'partials/head.html'?>
-    <div class="bg-primary border border-2">
-        <div class="container">
-        <div class="row">
-            <nav class="nav justify-content-end">
-                <a href="#" class="nav-link nav-fill" style="color: azure;">Log Out</a>
-            </nav>
-            <div class="col-md-10 offset-md-1 col-10">
-            <h3 class="text-center">Kelurahan Malasilen</h3>
-            </div>
+   <!-- header -->
+ <div class="bg-primary border border-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 offset-md-1 col-10">
+          <h3 class="text-center">Kelurahan Malasilen</h3>
         </div>
-        </div>
+      </div>
     </div>
+  </div>
 
     <div class="container-fluid mt-2">
         <div class="row">
@@ -79,7 +77,9 @@
                 <table class="table table-striped table-hover">
                     <thead>
                     <tr>
+                        <th>NIP</th>
                         <th>Nama</th>
+                        <th>Agama</th>
                         <th>Pendidikan Terakhir</th>
                         <th>Jabatan</th>
                     </tr>
@@ -102,17 +102,15 @@ if ($result->num_rows > 0) {
               <td><?php echo $row['Nip']; ?></td>
             <td><?php echo $row['Nama']; ?></td>
             <td><?php echo $row['Agama']; ?></td>
-            <td><?php echo $row['Tempat_Lhr']; ?></td>
-            <td><?php echo $row['Tanggal_Lhr']; ?></td>
-            <td><?php echo $row['Jns_Kelamin']; ?></td>
-            <td><?php echo $row['Gol_Darah']; ?></td>
             <td><?php echo $row['Pendidikan']; ?></td>
             <td><?php echo $row['Jabatan']; ?></td>
         </tr>
-        <?php
-    }
-}
-?>
+            <?php 
+                    }
+                } 
+                else{echo "<h5>Admin Sedang Cuti</h5>";
+                }
+            ?>
                     </tbody>
                 </table>
                 </div>

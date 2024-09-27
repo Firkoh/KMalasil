@@ -1,18 +1,15 @@
   <?php include 'partials/head.html'?>
 
   <!-- header -->
-  <div class="bg-primary border border-2">
-      <div class="container">
-        <div class="row">
-            <nav class="nav justify-content-end">
-              <a href="#" class="nav-link nav-fill" style="color: azure;">Log Out</a>
-            </nav>
-          <div class="col-md-10 offset-md-1 col-10">
-            <h3 class="text-center">Kelurahan Malasilen</h3>
-          </div>
+ <div class="bg-primary border border-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 offset-md-1 col-10">
+          <h3 class="text-center">Kelurahan Malasilen</h3>
         </div>
       </div>
     </div>
+  </div>
 
     <div class="container-fluid mt-2">
       <div class="row">
@@ -75,13 +72,27 @@
     <div class="col-md-9 col-12">
   <div class="row me-1">
     <div class="col-md-12 col-12 text-center border border-2">
+<div class="row"> 
+        <?php
+        include '../service/basisdata.php';
+
+            $sql = "SELECT * FROM galeri ORDER BY id ASC";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    ?>
       <div class="card m-2" style="width: 11rem; overflow-y: auto; max-height: 500px;">
-        <img alt="Gambar Kartu" class="card-img-top" src="../gbr/2.jpeg"/>
+        <img alt="<?php echo $row['nama_gambar'] ?>" class="card-img-top" src="Admin/Aksi/<?php echo $rows['path_file']?> "/>
         <div class="card-body">
           <h5 class="card-title">Judul Kartu</h5>
-          <!-- Add more content here -->
         </div>
       </div>
+                  <?php }
+          } 
+          else{echo "<h5>Admin Sedang Cuti</h5>";
+          }
+          ?>
+</div>
     </div>
   </div>
 </div>

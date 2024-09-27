@@ -28,6 +28,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Kelurahan Malasilen</title>
+ <link rel="icon" href="assets/Lambang_Kota_Sorong.png">
   <link rel="stylesheet" href="public/css/stylde.css">  
   <link rel="stylesheet" href="public/css/custom.css"> 
 </head>
@@ -55,13 +56,16 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
               <div class="form-floating mb-3">
                 <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password required">
                 <label for="floatingPassword">Password</label>
-                <span class="password-toggle">
-                  <i class="bi bi-eye-slash">kojo</i>
-                </span>
-              <button class="btn w-100" id="tombol" type="submit">Login</button>
-              </div>
+              </div>              <button class="btn w-100" id="tombol" type="submit">Login</button>
+<!-- ini alert -->
               <?php if (isset($error)) { ?>
-                <p class="text-danger text-center"><?= $error ?></p>
+                <script type="module">
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '<?= $error ?>',
+                  });
+                </script>
               <?php } ?>
             </form>
           </div>
@@ -71,6 +75,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
   </main>
 <!-- bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <!-- jquery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

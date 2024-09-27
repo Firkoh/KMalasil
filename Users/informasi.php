@@ -3,40 +3,28 @@ include '../service/basisdata.php';
 ?>
 
 <?php include 'partials/head.html'?>
+<!-- header -->
  <div class="bg-primary border border-2">
     <div class="container">
       <div class="row">
-          <nav class="nav justify-content-end">
-            <a href="#" class="nav-link nav-fill" style="color: azure;">Log Out</a>
-          </nav>
         <div class="col-md-10 offset-md-1 col-10">
-          <h3 class="text-center">Admin Kelurahan Malasilen</h3>
+          <h3 class="text-center">Kelurahan Malasilen</h3>
         </div>
       </div>
     </div>
   </div>
 
+<!-- pemisah  -->
   <div class="container-fluid mt-2">
     <div class="row">
-
-   
-<!-- sidebar -->
-      <div class="col-md-3 col-12">
-        <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary border border-2">
-          <div class="container text-center">
-            <div class="row">
-              <div class="col">
-                <a href="homes.php">
-                  <i class="bi bi-person-circle" style="font-size: 300%;"></i>
-                </a>
-              </div>
-              <a href="homes.php" class="">
-                <strong style="font-size: 18px;">Admin</strong>
-              </a>
-            </div>
-          </div>
   
-          <hr>
+<!-- sidebar -->
+
+        <div class="col-md-3 col-12">
+        <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary border border-2">
+          <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+    <hr>
           <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
               <a href="home.php" class="nav-link link-body-emphasis" aria-current="page">
@@ -121,10 +109,11 @@ include '../service/basisdata.php';
                       <td><?php echo $row['Jumlah_Penduduk']; ?></td>
                     
                     </tr>
-                    <?php
-                }
-            }
-            ?>
+                         <?php }
+          } 
+          else{echo "<h5>Admin Sedang Cuti</h5>";
+          }
+          ?>
           </tbody>
         </table>
       </div>
@@ -135,4 +124,4 @@ include '../service/basisdata.php';
 </div>
     </div>
 
-<?php include 'partials/footer.html'?>
+

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../../service/basisdata.php';
 
 if (isset($_POST['nama_gambar'])) {
@@ -15,15 +16,16 @@ if (isset($_POST['nama_gambar'])) {
             $stmt->bind_param("ss", $nama_gambar, $path);
             $stmt->execute();
             if ($stmt->affected_rows > 0) {
+                $_SESSION['pesan'] = "Berhasil upload gambar";
                 header("location: ../galeri.php");
             } else {
-                echo "Gagal upload gambar";
+                $_SESSION['pesan'] = "Gagal upload gambar";
             }
         } else {
-            echo "Gagal upload gambar (file sudah ada)";
+            $_SESSION['pesan'] = "Gagal upload gambar (file sudah ada)";
         }
     } else {
-        echo "Gagal upload gambar (file sudah ada)";
+        $_SESSION['pesan'] = "Gagal upload gambar (file sudah ada)";
     }
 }
 ?>
