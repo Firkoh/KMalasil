@@ -100,32 +100,37 @@ include '../service/basisdata.php';
 <div class="col-md-9 col-12">
   <div class="row">
 <div class="col-md-6 col-12 border border-2">
-    <h2 class="display-6 text-center">Kontak<?php ?></h2>
+    <h2 class="display-6 text-center" id="hal">Kontak<?php ?></h2>
+        <?php
+        include '../service/basisdata.php';
+        $query = mysqli_query($conn, "SELECT `id`, `te`, `em`, `wa`, `ins`, `fa`, `yo` FROM `kontak` WHERE 1");
+        $data = mysqli_fetch_array($query);
+        ?>
         <table class="table table-borderless mt-4 fs-5">
             <tbody>
                 <tr>
                     <td class="text-end">Telepon :</td>
-                    <td class="text-start text-decoration-underline"><?php ?></td>
+                    <td class="text-start text-decoration-underline"><?php echo $data['te']; ?></td>
                 </tr>
                 <tr>
                     <td class="text-end">Email :</td>
-                    <td class="text-start text-decoration-underline"><?php ?></td>
+                    <td class="text-start text-decoration-underline"><?php echo $data['em']; ?></td>
                 </tr>
                 <tr>
                     <td class="text-end">WhatsApp :</td>
-                    <td class="text-start text-decoration-underline"><?php ?></td>
+                    <td class="text-start text-decoration-underline"><?php echo $data['wa']; ?></td>
                 </tr>
                 <tr>
                     <td class="text-end">Instagram :</td>
-                    <td class="text-start text-decoration-underline"><?php ?></td>
+                    <td class="text-start text-decoration-underline"><?php echo $data['ins']; ?></td>
                 </tr>
                 <tr>
                     <td class="text-end">Facebook :</td>
-                    <td class="text-start text-decoration-underline"><?php ?></td>
+                    <td class="text-start text-decoration-underline"><?php echo $data['fa']; ?></td>
                 </tr>
                 <tr>
                     <td class="text-end">Youtube :</td>
-                    <td class="text-start text-decoration-underline"><?php ?></td>
+                    <td class="text-start text-decoration-underline"><?php echo $data['yo']; ?></td>
                 </tr>
             </tbody>
         </table>
@@ -133,27 +138,30 @@ include '../service/basisdata.php';
 
   <div class="col-md-6 col-12 border border-2">
 <div class="form-container mt-3">
-  <div class="form-title mb-3">Kontak Kelurahan</div>
+  <div class="form-title mb-3" id="hal">Kontak Kelurahan</div>
   <div class="form-subtitle mb-3">Isikan data dengan lengkap</div>
 
-  <form>
+  <form action="aksi/ubahkontak.php" method="post">
     <div class="mb-3">
-      <input type="text" class="form-control" placeholder="Telepon" required>
+      <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
     </div>
     <div class="mb-3">
-      <input type="text" class="form-control" placeholder="Email" required>
+      <input type="text" class="form-control" placeholder="Telepon" name="te" value="<?php echo $data['te']; ?>" required>
     </div>
     <div class="mb-3">
-      <input type="text" class="form-control" placeholder="WhatsApp" required>
+      <input type="text" class="form-control" placeholder="Email" name="em" value="<?php echo $data['em']; ?>" required>
     </div>
     <div class="mb-3">
-      <input type="text" class="form-control" placeholder="Instagram" required>
+      <input type="text" class="form-control" placeholder="WhatsApp" name="wa" value="<?php echo $data['wa']; ?>" required>
     </div>
     <div class="mb-3">
-      <input type="text" class="form-control" placeholder="Facebook" required>
+      <input type="text" class="form-control" placeholder="Instagram" name="in" value="<?php echo $data['ins']; ?>" required>
     </div>
     <div class="mb-3">
-      <input type="text" class="form-control" placeholder="Youtube" required>
+      <input type="text" class="form-control" placeholder="Facebook" name="fa" value="<?php echo $data['fa']; ?>" required>
+    </div>
+    <div class="mb-3">
+      <input type="text" class="form-control" placeholder="Youtube" name="yo" value="<?php echo $data['yo']; ?>" required>
     </div>
     <button type="submit" class="btn btn-primary">Ubah</button>
   </form>

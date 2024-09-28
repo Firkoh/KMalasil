@@ -106,7 +106,7 @@
         </div>
   <!-- awal carausel -->
         <div class="carousel-item ">
-        <div class="p-5 text-center bg-body-tertiary rounded-3" style="height: 400px ;background-image: url('../assets/Malasilen.jpeg'); background-position: center; background-size: cover;">
+        <div class="p-5 text-center bg-body-tertiary rounded-3" style="height: 400px ;background-image: url('assets/Malasilen.jpeg'); background-position: center; background-size: cover;">
   <div class="bg-black opacity-50 text-white">
             <h1 class="display-4">Data Rt-Rw</h1>
             <p class="lead"></p>

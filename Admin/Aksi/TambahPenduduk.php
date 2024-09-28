@@ -19,7 +19,7 @@ $stmt->bind_param("ssssssssss", $nik, $nama, $agama, $tempat_lhr, $tanggal_lhr, 
 
 try {
     $stmt->execute();
-    header("location: ../penduduk.php");
+    header("location: ../penduduk.php#hal");
 } catch (mysqli_sql_exception $e) {
     if ($e->getCode() === 1062) {
         echo "<script>alert('NIK sudah terdaftar')</script>"; // Nik sudah terdaftar";

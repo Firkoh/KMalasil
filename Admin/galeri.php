@@ -106,8 +106,7 @@ include '../service/basisdata.php';
                 <div class="card-body">
                 <h5 class="card-title"><?php echo $row['nama_gambar']; ?></h5>
                 <button class="btn btn-warning">Edit</button>
-                <button class="btn btn-danger" onclick="hapus(<?php echo $row['id']; ?>)">Hapus</button>
-
+                <button class="btn btn-danger" onclick="if(confirm('Anda yakin ingin menghapus galeri?')) location.href = 'Aksi/hapusGaleri.php?id=<?php echo $row['id']; ?>'">Hapus</button>
                 </div>
               </div>
             <?php
@@ -140,22 +139,6 @@ include '../service/basisdata.php';
 </div>
 
 <script>
-function hapus(<?php echo $row['id']; ?>) {
-    Swal.fire({
-  title: "Apakah Kamu Yakin Inggin Mengghapus Gambar Ini",
-  showCancelButton: true,
-  confirmButtonText: "Hapus",
-  cancelButtonText: "Batal"
-}).then((result) => {
 
-  if (result.isConfirmed) {
-    Swal.fire("Di Hapus");
-  }else{Swal.fire({
-    icon: 'warning',
-    title: 'Gagal Hapus',
-    text: 'Pastikan Anda telah memilih gambar yang ingin dihapus'
-  });}
-});
-}
 </script>
   <?php include 'partials/footer.html'?>

@@ -101,7 +101,7 @@ include '../service/basisdata.php';
 <div class="col-md-9 col-12 ">
   <div class="row">
     <div class="col-md-7 col-12 border border-2">
-      <h2 class="display-7 text-center">Tabel Informasi Kelurahan</h2>
+      <h2 class="display-7 text-center" id="hal">Tabel Informasi Kelurahan</h2>
       
       <div class="table-responsive" style="font-size: 60%; height: 400px; overflow-y: auto;">
         <table class="table table-striped table-hover" id="myTable">
@@ -109,6 +109,7 @@ include '../service/basisdata.php';
             <tr>
               <th>Judul Berita</th>
               <th>ISI</th>
+              <th>gambar</th>
               <th>Penulis</th>
               <th>Created At</th>
               <th colspan="2" class="text-center">Aksi</th>
@@ -123,14 +124,52 @@ include '../service/basisdata.php';
                     ?>
                     <tr>
                       <td><?php echo $row['Jb']; ?></td>
-                      <td><?php echo $row['isi']; ?></td>
+                      <td><?php echo substr($row['isi'], 0, 100) . (strlen($row['isi']) > 100 ? "..." : ""); ?></td>
+                      <td><img src="Aksi/<?php echo $row['path_gambar']; ?>" alt="<?php echo $row['Jb']; ?>" style="width: 100px; height: 100px; object-fit: cover;"></td>
                       <td><?php echo $row['penulis']; ?></td>
                       <td><?php echo $row['created_at']; ?></td>
                       <td>
-                        <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info" data-toggle="modal" data-target="#editModal" onclick="edit(<?php echo $row['id']; ?>)">edit</button>                      </td>
-                      <td>
-                         <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-danger" onclick="hapus(<?php $row['id'] ?>)">Hapus</button>
+                        <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info" data-toggle="modal" data-target="#editModal" onclick="editInformasi(<?php echo $row['id']; ?>)">edit</button>
+                        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="editModalLabel">Edit Data</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <form method="post" action="Aksi/editInformasi.php" enctype="multipart/form-data">
+                                  <input type="hidden" name="id" id="id">
+                                  <div class="mb-3">
+                                    <label for="judul" class="form-label">Judul Berita</label>
+                                    <input type="text" class="form-control" id="judul" name="judul" required>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="isi" class="form-label">Isi Berita</label>
+                                    <textarea class="form-control" id="isi" name="isi" rows="3" required></textarea>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="gambar" class="form-label">Gambar</label>
+                                    <input type="file" class="form-control" id="gambar" name="gambar">
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="penulis" class="form-label">Penulis</label>
+                                    <input type="text" class="form-control" id="penulis" name="penulis" required>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </td>
+                      <td>
+                          <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;"  class="btn btn-danger" onclick="if(confirm('Anda yakin ingin menghapus informasi ini?')) location.href = 'Aksi/hapusInformasi.php?id=<?php echo $row['id']; ?>'">Hapus</button>
                     </tr>
                     <?php
                 }
@@ -148,6 +187,9 @@ include '../service/basisdata.php';
   <form method="post" action="Aksi/Tambahinformasi.php" enctype="multipart/form-data">
     <div class="mb-3">
       <input type="text" class="form-control" placeholder="Judul Berita" name="Jb" required>
+    </div>
+    <div class="mb-3">
+      <input type="file" class="form-control" placeholder="gambar" name="path_gambar" required>
     </div>
     <div class="mb-3">
       <textarea class="form-control" placeholder="Isi" name="isi" required></textarea>
@@ -168,18 +210,7 @@ include '../service/basisdata.php';
 
 
 // funggsi hapus
-function hapus() {
-    Swal.fire({
-  title: "Apakah Kamu Yakin Inggin Mengghapus Ini",
-  showCancelButton: true,
-  confirmButtonText: "Hapus",
-  cancelButtonText: "Batal"
-}).then((result) => {
-
-  if (result.isConfirmed) {
-    Swal.fire("Di Hapus", "");
-  }
-});
-}
+<script>
+  
 </script>
 <?php include 'partials/footer.html'?>

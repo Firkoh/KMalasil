@@ -93,7 +93,7 @@
    <div class="col-md-9 col-12">
 <div class="row">
   <div class="col-md-7 col-12 border border-2">
-    <h2 class="display-7 text-center">RT/RW</h2>
+    <h2 class="display-7 text-center" id="hal">RT/RW</h2>
   
  <div class="table-responsive" style="font-size: 60%; height: 400px; overflow-y: auto;">
               <table class="table table-striped table-hover">

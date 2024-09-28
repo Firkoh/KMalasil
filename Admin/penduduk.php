@@ -102,7 +102,7 @@ include '../service/basisdata.php';
    <div class="col-md-9 col-12 ">
 <div class="row">
   <div class="col-md-7 col-12 border border-2">
-    <h2 class="display-7 text-center">Tabel Penduduk</h2>
+    <h2 class="display-7 text-center" id="hal">Tabel Penduduk</h2>
   
  <div class="table-responsive" style="font-size: 60%; height: 400px; overflow-y: auto;">
               <table class="table table-striped table-hover">
@@ -150,7 +150,7 @@ if ($result->num_rows > 0) {
             <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info" data-toggle="modal" data-target="#editModal" data-id="<?php echo $row['Nik']; ?>">Edit</button>
             </td>
             <td>
-                <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-danger" onclick="hapus(<?php echo $row['Nik']; ?>)">Hapus</button>
+              <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-danger" onclick="if(confirm('Anda yakin ingin menghapus informasi ini?')) location.href = 'Aksi/hapusPenduduk.php?id=<?php echo $row['ID']; ?>'">Hapus</button>
             </td>
         </tr>
         <?php

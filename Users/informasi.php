@@ -78,44 +78,25 @@ include '../service/basisdata.php';
 <div class="col-md-9 col-12 ">
   <div class="row me-2">
     <div class="col-md-12 col-12 border border-2">
-      <h2 class="display-7 text-center">Tabel Informasi Kelurahan</h2>
-      
-      <div class="table-responsive" style="font-size: 60%; height: 400px; overflow-y: auto;">
-        <table class="table table-striped table-hover">
-          <thead>
-            <tr>
-              <th>Nama Kelurahan</th>
-              <th>RT/RW</th>
-              <th>Distrik</th>
-              <th>Kabupaten/Kota</th>
-              <th>Provinsi</th>
-              <th>Jumlah Penduduk</th>
-        
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            $sql = "SELECT * FROM kelurahan ORDER BY id ASC";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    ?>
-                    <tr>
-                      h<?php echo $row['judul']; ?></td>
-                      <td><?php echo $row['RT_RW']; ?></td>
-                      <td><?php echo $row['Distrik']; ?></td>
-                      <td><?php echo $row['Kabupaten_Kota']; ?></td>
-                      <td><?php echo $row['Provinsi']; ?></td>
-                      <td><?php echo $row['Jumlah_Penduduk']; ?></td>
-                    
-                    </tr>
-                         <?php }
-          } 
-          else{echo "<h5>Admin Sedang Cuti</h5>";
-          }
-          ?>
-          </tbody>
-        </table>
+       <!-- awal carausal -->
+        <div class="carousel-item">
+          <div class="p-5 text-center bg-body-tertiary rounded-3" style="height: 400px ;background-image: url('../assets/Malasilen.jpeg'); background-position: center; background-size: cover;">
+            <div class="bg-black opacity-50">
+            <h1 class="display-4 text-white">Selamat Datang</h1>
+            <p class="lead text-white">Kantor kelurahan memiliki</p>
+            <hr class="my-4 border-white">
+            <p class="text-white">Tentang Kami</p>
+            <div class="m-2">
+              <a href="sejarah.php"><button class="btn btn-primary btn-lg text-white" type="button">Sejarah Kelurahan</button></a>
+              <a href="informasi.php"><button class="btn btn-primary btn-lg mx-2 text-white" type="button">Informasi kelurahan</button></a>
+            </div>
+            <a href="rt.php"><button class="btn btn-primary btn-lg me-2 text-white" type="button">Data RT/RW</button></a>
+            <a href="Plurah.php"><button class="btn btn-primary btn-lg me-2 text-white" type="button">Peranggkat Kelurahan</button></a>
+            <a href="kontak.php"><button class="btn btn-primary btn-lg text-white" type="button">Kontak</button></a>
+            </div>
+          </div>
+        </div>
+  <!-- akhir carausal -->
       </div>
     </div>
  
