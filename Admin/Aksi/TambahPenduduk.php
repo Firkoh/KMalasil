@@ -12,14 +12,29 @@ $pendidikan = $_POST['pendidikan'];
 $pekerjaan = $_POST['pekerjaan'];
 $status = $_POST['status'];
 
-$sql = "INSERT INTO penduduk (nik, nama, agama, tempat_lhr, tanggal_lhr, jenis_kelamin, gol_darah, pendidikan, pekerjaan, status) VALUES ('$nik', '$nama', '$agama', '$tempat_lhr', '$tanggal_lhr', '$jenis_kelamin', '$gol_darah', '$pendidikan', '$pekerjaan', '$status')";
+$sql = "INSERT INTO penduduk (nik, nama, agama, tempat_lhr, tanggal_lhr, jenis_kelamin, gol_darah, pendidikan, pekerjaan, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-if ($conn->query($sql) === TRUE) {
-    echo "Data penduduk berhasil ditambahkan.";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ssssssssss", $nik, $nama, $agama, $tempat_lhr, $tanggal_lhr, $jenis_kelamin, $gol_darah, $pendidikan, $pekerjaan, $status);
+
+try {
+    $stmt->execute();
+    header("location: ../penduduk.php");
+} catch (mysqli_sql_exception $e) {
+    if ($e->getCode() === 1062) {
+        echo "<script>alert('NIK sudah terdaftar')</script>"; // Nik sudah terdaftar";
+    } else {
+        throw $e;
+    };
+    if ($e->getCode() === 1048) {
+        echo "<script>alert('Kolom Tidak Boleh Duplikat')</script>";
+    } else {
+        throw $e;
+    };
 }
 
+$stmt->close();
 $conn->close();
 
 ?>
+

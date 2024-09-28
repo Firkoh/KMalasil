@@ -107,12 +107,10 @@ include '../service/basisdata.php';
         <table class="table table-striped table-hover" id="myTable">
           <thead>
             <tr>
-              <th>Nama Kelurahan</th>
-              <th>RT/RW</th>
-              <th>Distrik</th>
-              <th>Kabupaten/Kota</th>
-              <th>Provinsi</th>
-              <th>Jumlah Penduduk</th>
+              <th>Judul Berita</th>
+              <th>ISI</th>
+              <th>Penulis</th>
+              <th>Created At</th>
               <th colspan="2" class="text-center">Aksi</th>
             </tr>
           </thead>
@@ -124,12 +122,10 @@ include '../service/basisdata.php';
                 while ($row = $result->fetch_assoc()) {
                     ?>
                     <tr>
-                      <td><?php echo $row['Nama_Kelurahan']; ?></td>
-                      <td><?php echo $row['RT_RW']; ?></td>
-                      <td><?php echo $row['Distrik']; ?></td>
-                      <td><?php echo $row['Kabupaten_Kota']; ?></td>
-                      <td><?php echo $row['Provinsi']; ?></td>
-                      <td><?php echo $row['Jumlah_Penduduk']; ?></td>
+                      <td><?php echo $row['Jb']; ?></td>
+                      <td><?php echo $row['isi']; ?></td>
+                      <td><?php echo $row['penulis']; ?></td>
+                      <td><?php echo $row['created_at']; ?></td>
                       <td>
                         <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info" data-toggle="modal" data-target="#editModal" onclick="edit(<?php echo $row['id']; ?>)">edit</button>                      </td>
                       <td>
@@ -151,27 +147,17 @@ include '../service/basisdata.php';
 
   <form method="post" action="Aksi/Tambahinformasi.php" enctype="multipart/form-data">
     <div class="mb-3">
-      <input type="text" class="form-control" placeholder="Nama Kelurahan" required>
+      <input type="text" class="form-control" placeholder="Judul Berita" name="Jb" required>
     </div>
     <div class="mb-3">
-      <input type="text" class="form-control" placeholder="RT/RW" required>
+      <textarea class="form-control" placeholder="Isi" name="isi" required></textarea>
     </div>
     <div class="mb-3">
-      <input type="text" class="form-control" placeholder="Distrik" required>
-    </div>
-    <div class="mb-3">
-      <input type="text" class="form-control" placeholder="Kabupaten/Kota" required>
-    </div>
-    <div class="mb-3">
-      <input type="text" class="form-control" placeholder="Provinsi" required>
-    </div>
-    <div class="mb-3">
-      <input type="number" class="form-control" onclick="ubah()" placeholder="Jumlah Penduduk" required>
+      <input type="text" class="form-control" placeholder="Penulis" name="penulis" required>
     </div>
     <button type="submit" class="btn btn-primary" >Tambah</button>
-  </form>
-</div>
-</div>
+  </form></div>
+  </div>
 </div>
     </div>
   </div>

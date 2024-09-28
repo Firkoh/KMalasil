@@ -89,7 +89,14 @@
       </div>
                   <?php }
           } 
-          else{echo "<h5>Admin Sedang Cuti</h5>";
+          else{
+            echo '<script type="module">
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Admin Sedang Cuti",
+            });
+            </script>';
           }
           ?>
 </div>

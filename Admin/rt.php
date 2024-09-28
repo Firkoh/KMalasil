@@ -143,44 +143,22 @@ if ($result->num_rows > 0) {
 
   <div class="col-md-5 col-12 border border-2" style="height:500px; overflow-x: auto;">
 <div class="form-container mt-5">
-  <div class="form-title mb-3">Tambah Data Penduduk</div>
+  <div class="form-title mb-3">Tambah Data RT RW</div>
   <div class="form-subtitle mb-3">Isikan data dengan lengkap</div>
 
-  <form>
+  <form action="Aksi/TambahRT.php" method="post">
     <div class="mb-3">
-      <input type="text" class="form-control" id="nik" placeholder="Nik" required>
+      <input type="number" class="form-control" id="rt" placeholder="RT" name="rt" required>
     </div>
     <div class="mb-3">
-      <input type="text" class="form-control" id="nama" placeholder="Nama" required>
-    </div>
-    <div class="mb-3"
-      <input type="text" class="form-control" id="agama" placeholder="Agama" required>
+      <input type="number" class="form-control" id="rw" placeholder="RW" name="rw" required>
     </div>
     <div class="mb-3">
-      <input type="text" class="form-control" id="tempat_lhr" placeholder="Tempat Lhr" required>
-    </div>
-    <div class="mb-3">
-      <input type="date" class="form-control" id="tanggal_lhr" placeholder="Tanggal Lhr" required min="1940-01-01" max="2006-12-31">
-    </div>
-    <div class="mb-3">
-      <input type="text" class="form-control" id="jns_kelamin" placeholder="Jns Kelamin" required>
-    </div>
-    <div class="mb-3">
-      <input type="text" class="form-control" id="gol_darah" placeholder="Gol Darah" required>
-    </div>
-    <div class="mb-3">
-      <input type="text" class="form-control" id="pendidikan" placeholder="Pendidikan" required>
-    </div>
-    <div class="mb-3">
-      <input type="text" class="form-control" id="pekerjaan" placeholder="Pekerjaan" required>
-    </div>
-    <div class="mb-3">
-      <input type="text" class="form-control" id="status" placeholder="Status" required>
+      <input type="number" class="form-control" id="jumlah_penduduk" placeholder="Jumlah Penduduk" name="jumlah_penduduk" required>
     </div>
     <button type="submit" class="btn btn-primary mb-2">Tambah</button>
   </form>
-</div>
-</div>
+</div></div>
 </div>
     </div>
   </div>

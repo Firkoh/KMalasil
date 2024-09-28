@@ -101,7 +101,7 @@ include '../service/basisdata.php';
                 while ($row = $result->fetch_assoc()) {
                     ?>
                     <tr>
-                      <td><?php echo $row['Nama_Kelurahan']; ?></td>
+                      h<?php echo $row['judul']; ?></td>
                       <td><?php echo $row['RT_RW']; ?></td>
                       <td><?php echo $row['Distrik']; ?></td>
                       <td><?php echo $row['Kabupaten_Kota']; ?></td>

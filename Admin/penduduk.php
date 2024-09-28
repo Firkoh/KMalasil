@@ -136,7 +136,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         ?>
         <tr>
-              <td><?php echo $row['Nik']; ?></td>
+            <td><?php echo $row['Nik']; ?></td>
             <td><?php echo $row['Nama']; ?></td>
             <td><?php echo $row['Agama']; ?></td>
             <td><?php echo $row['Tempat_Lhr']; ?></td>
@@ -147,7 +147,7 @@ if ($result->num_rows > 0) {
             <td><?php echo $row['Pekerjaan']; ?></td>
             <td><?php echo $row['Status']; ?></td>
             <td>
-                <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info" data-toggle="modal" data-target="#editModal" data-id="<?php echo $row['Nik']; ?>">Edit</button>
+            <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info" data-toggle="modal" data-target="#editModal" data-id="<?php echo $row['Nik']; ?>">Edit</button>
             </td>
             <td>
                 <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-danger" onclick="hapus(<?php echo $row['Nik']; ?>)">Hapus</button>
@@ -201,7 +201,8 @@ if ($result->num_rows > 0) {
             <div class="mb-3">
                 <input type="text" class="form-control" placeholder="Status" name="status">
             </div>
-    <button type="submit" class="btn btn-primary mb-2">Tambah</button>
+    <button type="submit" class="btn btn-primary mb-2" onclick="tambahData()">Tambah</button>
+
   </form>
 </div>
 </div>
@@ -210,6 +211,21 @@ if ($result->num_rows > 0) {
   </div>
 
 <script>
+function tambahData() {
+    Swal.fire({
+        title: 'Apakah Kamu Yakin?',
+        text: 'Data yang diinputkan tidak dapat diubah',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Tambah',
+        cancelButtonText: 'Batal',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire('Data Berhasil Ditambahkan', '', 'success')
+        }
+    })
+}
+
 function hapus(Nik) {
     Swal.fire({
   title: "Apakah Kamu Yakin Inggin Mengghapus Ini",
