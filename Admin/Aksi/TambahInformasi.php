@@ -12,7 +12,7 @@ if (isset($_POST['Jb'])) {
     $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
     $maxFileSize = 1024 * 1024; // 1MB
     if (!in_array($file['type'], $allowedTypes) || $file['size'] > $maxFileSize) {
-        echo "<script>alert('File type or size is not allowed');</script>";
+        $_SESSION['error'] = 'File type or size is not allowed';
         header("location: ../informasi.php#hal");
         exit;
     }
@@ -24,7 +24,7 @@ if (isset($_POST['Jb'])) {
 
     // Check if file already exists
     if (file_exists($path)) {
-        echo "<script>alert('Gagal upload gambar (file sudah ada)');</script>";
+        $_SESSION['error'] = 'Gagal upload gambar (file sudah ada)';
         header("location: ../informasi.php");
         exit;
     }
@@ -38,17 +38,19 @@ if (isset($_POST['Jb'])) {
 
         try {
             $stmt->execute();
-            echo "<script>alert('Berhasil upload informasi');</script>";
+            $_SESSION['success'] = 'Berhasil upload informasi';
             header("location: ../informasi.php#hal");
         } catch (mysqli_sql_exception $e) {
-            echo "<script>alert('Gagal upload informasi');</script>";
+            $_SESSION['error'] = 'Gagal upload informasi';
             header("location: ../informasi.php#hal");
         } finally {
             $stmt->close();
             $conn->close();
         }
     } else {
-        echo "<script>alert('Gagal upload gambar');</script>";
+        $_SESSION['error'] = 'Gagal upload gambar';
+        header("location: ../informasi.php#hal");
     }
 }
+
 
