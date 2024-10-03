@@ -5,7 +5,7 @@ $id = $_GET['id'];
 if (!is_numeric($id)) {
     echo "ID RT tidak valid.";
     exit;
-}
+};
 
 // Ambil nama file gambar dari database (sesuaikan dengan struktur tabel Anda)
 $stmt = $conn->prepare("SELECT `id`, `rt`, `rw`, `jumlah_penduduk` FROM `rtrw` WHERE `id` = ?");

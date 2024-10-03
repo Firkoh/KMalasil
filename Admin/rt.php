@@ -129,7 +129,7 @@ if ($result->num_rows > 0) {
                <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info" data-toggle="modal" data-target="#editModal" data-id="<?php echo $row['id']; ?>">Edit</button>
             </td>
             <td>
-             <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-danger" onclick="if(confirm('Anda yakin ingin menghapus informasi ini?')) location.href = 'Aksi/hapusRt.php?id=<?php echo $row['id']; ?>'">Hapus</button>
+             <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-danger" onclick="if(confirm('Anda yakin ingin menghapus RT/RW ini?')) location.href = 'Aksi/hapusRt.php?id=<?php echo $row['id']; ?>'">Hapus</button>
             </td>
         </tr>
         <?php
