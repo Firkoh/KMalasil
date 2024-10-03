@@ -9,9 +9,10 @@ if (isset($_POST['Jb'])) {
     $penulis = $_POST['penulis'];
 
     // Validate file type and size
-    $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-    $maxFileSize = 1024 * 1024; // 1MB
-    if (!in_array($file['type'], $allowedTypes) || $file['size'] > $maxFileSize) {
+    $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/tiff', 'image/webp'];
+    $notAllowedTypes = ['video/mp4', 'video/avi', 'video/mpeg', 'video/quicktime'];
+    $maxFileSize = 5 * 1024 * 1024; // 5MB
+    if (!in_array($file['type'], $allowedTypes) || in_array($file['type'], $notAllowedTypes) || $file['size'] > $maxFileSize) {
         $_SESSION['error'] = 'File type or size is not allowed';
         header("location: ../informasi.php#hal");
         exit;
@@ -19,7 +20,7 @@ if (isset($_POST['Jb'])) {
 
     // Generate a unique file name
     $gambar = uniqid() . '_' . $file['name'];
-    $path = "uploads/" . $gambar;
+    $path = "uploads/informasi/$gambar";
     $tmp_name = $file['tmp_name'];
 
     // Check if file already exists

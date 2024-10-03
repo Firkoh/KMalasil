@@ -8,20 +8,6 @@ include '../service/basisdata.php';
 ?>
 <?php include 'partials/head.html'?>
 
-
- <div class="bg-primary border border-2">
-    <div class="container">
-      <div class="row">
-          <nav class="nav justify-content-end">
-            <a href="#" class="nav-link nav-fill" style="color: azure;">Log Out</a>
-          </nav>
-        <div class="col-md-10 offset-md-1 col-10">
-          <h3 class="text-center">Admin Kelurahan Malasilen</h3>
-        </div>
-      </div>
-    </div>
-  </div>
-
 <!-- pemisah  -->
   <div class="container-fluid mt-2">
     <div class="row">

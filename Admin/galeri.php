@@ -1,18 +1,5 @@
   <?php include 'partials/head.html'?>
 
-  <!-- header -->
-  <div class="bg-primary border border-2">
-      <div class="container">
-        <div class="row">
-            <nav class="nav justify-content-end">
-              <a href="#" class="nav-link nav-fill" style="color: azure;">Log Out</a>
-            </nav>
-          <div class="col-md-10 offset-md-1 col-10">
-            <h3 class="text-center">Admin Kelurahan Malasilen</h3>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="container-fluid mt-2">
       <div class="row">
@@ -102,10 +89,40 @@ include '../service/basisdata.php';
         while ($row = $result->fetch_assoc()) {
             ?>
               <div class="card m-2 d-inline-block" style="width: 18rem;">
-                <img alt="Gambar Kartu" class="card-img-top" src="Aksi/<?php echo $row['path_file']; ?>"/>
+                <img alt="Gambar Kartu" class="card-img-top img-fluid" src="Aksi/<?php echo $row['path_file']; ?>" style="width: 100%; height: 200px; object-fit: contain;"/>
                 <div class="card-body">
                 <h5 class="card-title"><?php echo $row['nama_gambar']; ?></h5>
-                <button class="btn btn-warning">Edit</button>
+               
+                        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editModal<?php echo $row['id']; ?>">edit</button>
+
+                        <div class="modal fade" id="editModal<?php echo $row['id']; ?>" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="editModalLabel">Edit Galeri</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                <form action="Aksi/editGaleri.php" method="post" enctype="multipart/form-data">
+                                  <div class="form-group mb-3">
+                                    <label for="nama_gambar" class="form-label">Nama Gambar</label>
+                                    <input type="text" class="form-control" id="nama_gambar" name="nama_gambar" value="<?php echo $row['nama_gambar']; ?>">
+                                  </div>
+                                  <div class="form-group mb-3">
+                                    <label for="path_file" class="form-label">Ganti Gambar</label>
+                                    <input type="file" class="form-control" id="path_file" name="path_file">
+                                  </div>
+                                  <input type="hidden" name="id" id="id" value="<?php echo $row['id']; ?>">
+                                  <button type="submit" class="btn btn-primary">Simpan</button>
+                                </form>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    
                 <button class="btn btn-danger" onclick="if(confirm('Anda yakin ingin menghapus galeri?')) location.href = 'Aksi/hapusGaleri.php?id=<?php echo $row['id']; ?>'">Hapus</button>
                 </div>
               </div>
@@ -122,12 +139,14 @@ include '../service/basisdata.php';
 
   <form action="Aksi/TambahGaleri.php" method="post" enctype="multipart/form-data">
     <div class="mb-3">
-      <input name="nama_gambar" type="text" class="form-control" placeholder="Nama Gambar" required>
+      <label for="nama_gambar" class="form-label">Nama Gambar</label>
+      <input name="nama_gambar" type="text" class="form-control" id="nama_gambar" placeholder="Nama Gambar" required>
     </div>
     <div class="mb-3">
-      <input name="path_file" type="file" class="form-control mb-3" placeholder="Pilih Gambar" required>
-      <button class="btn btn-primary">Tambah Gambar</button>
+      <label for="path_file" class="form-label">Pilih Gambar</label>
+      <input name="path_file" type="file" class="form-control" id="path_file" required>
     </div>
+    <button type="submit" class="btn btn-primary">Tambah Gambar</button>
   </form>
 </div>
       </div>
@@ -136,8 +155,7 @@ include '../service/basisdata.php';
   </div>
   </div>
 </div>
-</div>
-
+</div
 <script>
 
 </script>

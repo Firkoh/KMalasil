@@ -1,18 +1,7 @@
 
 
 <?php include 'partials/head.html'?>
- <div class="bg-primary border border-2">
-    <div class="container">
-      <div class="row">
-          <nav class="nav justify-content-end">
-            <a href="#" class="nav-link nav-fill" style="color: azure;">Log Out</a>
-          </nav>
-        <div class="col-md-10 offset-md-1 col-10">
-          <h3 class="text-center">Admin Kelurahan Malasilen</h3>
-        </div>
-      </div>
-    </div>
-  </div>
+
   <div class="container-fluid mt-2">
     <div class="row">
 
@@ -126,8 +115,45 @@ if ($result->num_rows > 0) {
             <td><?php echo $row['rw']; ?></td>
             <td><?php echo $row['jumlah_penduduk']; ?></td>
             <td>
-               <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info" data-toggle="modal" data-target="#editModal" data-id="<?php echo $row['id']; ?>">Edit</button>
-            </td>
+           <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editModal<?php echo $row['id']; ?>">edit</button>
+
+                        <div class="modal fade" id="editModal<?php echo $row['id']; ?>" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="editModalLabel">Edit Informasi</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                <form action="Aksi/editRt.php" method="post">
+                                  <div class="form-group mb-3">
+                                    <label for="id" class="form-label">ID</label>
+                                    <input type="text" class="form-control" id="id" name="id" value="<?php echo $row['id']; ?>" readonly>
+                                  </div>
+                                  <div class="form-group mb-3">
+                                    <label for="rt" class="form-label">RT</label>
+                                    <input type="text" class="form-control" id="rt" name="rt" value="<?php echo $row['rt']; ?>">
+                                  </div>
+                                  <div class="form-group mb-3">
+                                    <label for="rw" class="form-label">RW</label>
+                                    <input type="text" class="form-control" id="rw" name="rw" value="<?php echo $row['rw']; ?>">
+                                  </div>
+                                  <div class="form-group mb-3">
+                                    <label for="jumlah_penduduk" class="form-label">Jumlah Penduduk</label>
+                                    <input type="text" class="form-control" id="jumlah_penduduk" name="jumlah_penduduk" value="<?php echo $row['jumlah_penduduk']; ?>">
+                                  </div>
+                                  <input type="hidden" name="id" id="id" value="<?php echo $row['id']; ?>">
+                                  <button type="submit" class="btn btn-primary">Simpan</button>
+                                </form>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                     
+</td>
             <td>
              <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;"  class="btn btn-danger" onclick="if(confirm('Anda yakin ingin menghapus informasi ini?')) location.href = 'Aksi/hapusRt.php?id=<?php echo $row['id']; ?>'">Hapus
             </button>

@@ -8,18 +8,7 @@ include '../service/basisdata.php';
 ?>
 
 <?php include 'partials/head.html'?>
- <div class="bg-primary border border-2">
-    <div class="container">
-      <div class="row">
-          <nav class="nav justify-content-end">
-            <a href="#" class="nav-link nav-fill" style="color: azure;">Log Out</a>
-          </nav>
-        <div class="col-md-10 offset-md-1 col-10">
-          <h3 class="text-center">Admin Kelurahan Malasilen</h3>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
   <div class="container-fluid mt-2">
     <div class="row">
@@ -129,40 +118,36 @@ include '../service/basisdata.php';
                       <td><?php echo $row['penulis']; ?></td>
                       <td><?php echo $row['created_at']; ?></td>
                       <td>
-                        <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info" data-toggle="modal" data-target="#editModal" onclick="editInformasi(<?php echo $row['id']; ?>)">edit</button>
-                        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-                          <div class="modal-dialog" role="document">
+                        <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editModal<?php echo $row['id']; ?>">edit</button>
+
+                        <div class="modal fade" id="editModal<?php echo $row['id']; ?>" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="editModalLabel">Edit Data</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
+                                <h5 class="modal-title" id="editModalLabel">Edit Informasi</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
-                                <form method="post" action="Aksi/editInformasi.php" enctype="multipart/form-data">
-                                  <input type="hidden" name="id" id="id">
-                                  <div class="mb-3">
-                                    <label for="judul" class="form-label">Judul Berita</label>
-                                    <input type="text" class="form-control" id="judul" name="judul" required>
+                                <form action="Aksi/editInformasi.php" method="post">
+                                  <div class="form-group mb-3">
+                                    <label for="Jb" class="form-label">Judul Berita</label>
+                                    <input type="text" class="form-control" id="Jb" name="Jb" value="<?php echo $row['Jb']; ?>">
                                   </div>
-                                  <div class="mb-3">
-                                    <label for="isi" class="form-label">Isi Berita</label>
-                                    <textarea class="form-control" id="isi" name="isi" rows="3" required></textarea>
+                                  <div class="form-group">
+                                    <label for="isi">ISI</label>
+                                    <textarea class="form-control" id="isi" name="isi"><?php echo $row['isi']; ?></textarea>
                                   </div>
-                                  <div class="mb-3">
-                                    <label for="gambar" class="form-label">Gambar</label>
-                                    <input type="file" class="form-control" id="gambar" name="gambar">
+                                
+                                  <div class="form-group mb-4">
+                                    <label for="penulis">Penulis</label>
+                                    <input type="text" class="form-control" id="penulis" name="penulis" placeholder="<?php echo $row['penulis']; ?>" value="<?php echo $row['penulis']; ?>">
                                   </div>
-                                  <div class="mb-3">
-                                    <label for="penulis" class="form-label">Penulis</label>
-                                    <input type="text" class="form-control" id="penulis" name="penulis" required>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
-                                  </div>
+                                  <input type="hidden" name="id" id="id" value="<?php echo $row['id']; ?>">
+                                  <button type="submit" class="btn btn-primary">Simpan</button>
                                 </form>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                               </div>
                             </div>
                           </div>
@@ -206,10 +191,6 @@ include '../service/basisdata.php';
 
 <script>
 
-
-
-
-// funggsi hapus
 <script>
   
 </script>

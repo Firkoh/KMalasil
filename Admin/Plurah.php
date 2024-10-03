@@ -8,24 +8,10 @@ include '../service/basisdata.php';
 
 ?>
 <?php include 'partials/head.html'?>
- <div class="bg-primary border border-2">
-    <div class="container">
-      <div class="row">
-          <nav class="nav justify-content-end">
-            <a href="#" class="nav-link nav-fill" style="color: azure;">Log Out</a>
-          </nav>
-        <div class="col-md-10 offset-md-1 col-10">
-          <h3 class="text-center">Admin Kelurahan Malasilen</h3>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
   <div class="container-fluid mt-2">
     <div class="row">
-
-
     
 <!-- sidebar -->
       <div class="col-md-3 col-12">
@@ -144,9 +130,66 @@ if ($result->num_rows > 0) {
             <td><?php echo $row['Gol_Darah']; ?></td>
             <td><?php echo $row['Pendidikan']; ?></td>
             <td><?php echo $row['Jabatan']; ?></td>
-            <td>
-                <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info" data-toggle="modal" data-target="#editModal" data-id="<?php echo $row['Nip']; ?>">Edit</button>
-            </td>
+           <td>
+                        <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editModal<?php echo $row['id']; ?>">edit</button>
+
+                        <div class="modal fade" id="editModal<?php echo $row['id']; ?>" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="editModalLabel">Edit Plurah</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                <form action="Aksi/editPlurah.php" method="post">
+                                  <div class="form-group mb-3">
+                                    <label for="Nip" class="form-label">NIP</label>
+                                    <input type="text" class="form-control" id="Nip" name="Nip" value="<?php echo $row['Nip']; ?>">
+                                  </div>
+                                  <div class="form-group mb-3">
+                                    <label for="Nama" class="form-label">Nama</label>
+                                    <input type="text" class="form-control" id="Nama" name="Nama" value="<?php echo $row['Nama']; ?>">
+                                  </div>
+                                  <div class="form-group mb-3">
+                                    <label for="Agama" class="form-label">Agama</label>
+                                    <input type="text" class="form-control" id="Agama" name="Agama" value="<?php echo $row['Agama']; ?>">
+                                  </div>
+                                  <div class="form-group mb-3">
+                                    <label for="Tempat_Lhr" class="form-label">Tempat Lahir</label>
+                                    <input type="text" class="form-control" id="Tempat_Lhr" name="Tempat_Lhr" value="<?php echo $row['Tempat_Lhr']; ?>">
+                                  </div>
+                                  <div class="form-group mb-3">
+                                    <label for="Tanggal_Lhr" class="form-label">Tanggal Lahir</label>
+                                    <input type="date" class="form-control" id="Tanggal_Lhr" name="Tanggal_Lhr" value="<?php echo $row['Tanggal_Lhr']; ?>">
+                                  </div>
+                                  <div class="form-group mb-3">
+                                    <label for="Jenis_Kelamin" class="form-label">Jenis Kelamin</label>
+                                    <select class="form-control" id="Jns_Kelamin" name="Jns_Kelamin">
+                                      <option value="">-- Pilih Jenis Kelamin --</option>
+                                      <option value="Laki-laki" <?php echo $row['Jns_Kelamin'] == 'Laki-laki' ? 'selected' : ''; ?>>Pria</option>
+                                      <option value="Perempuan" <?php echo $row['Jns_Kelamin'] == 'Perempuan' ? 'selected' : ''; ?>>Wanita</option>
+                                    </select>
+                                  </div>
+                                  <div class="form-group mb-3">
+                                    <label for="Gol_Darah" class="form-label">Golongan Darah</label>
+                                    <input type="text" class="form-control" id="Gol_Darah" name="Gol_Darah" value="<?php echo $row['Gol_Darah']; ?>">
+                                  </div>
+                                  <div class="form-group mb-3">
+                                    <label for="Pendidikan" class="form-label">Pendidikan</label>
+                                    <input type="text" class="form-control" id="Pendidikan" name="Pendidikan" value="<?php echo $row['Pendidikan']; ?>">
+                                  </div>
+                                  <div class="form-group mb-3">
+                                    <label for="Jabatan" class="form-label">Jabatan</label>
+                                    <input type="text" class="form-control" id="Jabatan" name="Jabatan" value="<?php echo $row['Jabatan']; ?>">
+                                  </div>
+                                  <input type="hidden" name="id" id="id" value="<?php echo $row['id']; ?>">
+                                  <button type="submit" class="btn btn-primary">Simpan</button>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
              <td>
               <button style="font-size: 10px; padding: 2px 5px; height: 20px; width: 40px;" class="btn btn-danger" onclick="if(confirm('Anda yakin ingin menghapus informasi ini?')) location.href = 'Aksi/hapusPlurah.php?id=<?php echo $row['id']; ?>'">Hapus</button>
             </td>
