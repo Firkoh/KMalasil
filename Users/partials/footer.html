@@ -1,19 +1,63 @@
+<!-- Footer -->
+<footer class="bg-dark text-light py-4">
+  <div class="container text-center">
+      <p>&copy; 2024 Kota Sorong, Papua Barat Daya. All rights reserved.</p>
+      <p>Developed by Kelurahan Malasilen</p>
+  </div>
+</footer>
 
-<!-- js bootstrap
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
-
-<!-- jquery -->
+<!-- Loading Spinner -->
 <div id="loading" style="display: none;">
   <div class="loading-spinner">
-    <div class="spinner-border text-primary" role="status">
-      <span class="sr-only"></span>
-    </div>
-<!-- jquery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../public/js/script.js"></script>
-  <script src="../public/js/sc.js"></script>
-
+      <div class="spinner-border text-primary" role="status">
+          <span class="sr-only">Loading...</span>
+      </div>
+  </div>
 </div>
-</body>
-</html>
+
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="../public/js/script.js"></script>
+<script src="../public/js/sc.js"></script>
+
+<style>
+  footer {
+      background-color: #343a40;
+      color: #fff;
+      font-size: 1rem;
+  }
+
+  footer p {
+      margin: 0;
+      font-size: 0.9rem;
+  }
+
+  .loading-spinner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(255, 255, 255, 0.8);
+      z-index: 1050;
+  }
+
+  .spinner-border {
+      width: 3rem;
+      height: 3rem;
+      animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+      from {
+          transform: rotate(0deg);
+      }
+      to {
+          transform: rotate(360deg);
+      }
+  }
+</style>
