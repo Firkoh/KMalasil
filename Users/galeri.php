@@ -81,10 +81,12 @@
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     ?>
-      <div class="card m-2" style="width: 11rem; overflow-y: auto; max-height: 500px;">
-        <img alt="<?php echo $row['nama_gambar'] ?>" class="card-img-top" src="Admin/Aksi/<?php echo $rows['path_file']?> "/>
-        <div class="card-body">
-          <h5 class="card-title">Judul Kartu</h5>
+      <div class="col-md-4 col-12 mb-3">
+        <div class="card h-100">
+          <img alt="<?php echo $row['nama_gambar'] ?>" class="card-img-top" src="../Admin/Aksi/<?php echo $row['path_file']?> " style="height: 150px; object-fit: cover;"/>
+          <div class="card-body">
+            <h5 class="card-title"><?php echo $row['nama_gambar']; ?></h5>
+          </div>
         </div>
       </div>
                   <?php }

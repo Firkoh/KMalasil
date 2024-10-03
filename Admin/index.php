@@ -1,25 +1,8 @@
 <?php
-
 session_start();
-    include '../service/basisdata.php';
-if (isset($_POST['username']) && isset($_POST['password'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $sql = "SELECT * FROM admin WHERE username = ? AND password = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param('ss', $username, $password);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $_SESSION['username'] = $row['username'];
-        header('Location: homes.php');
-        exit;
-    } else {
-        $error = 'Username atau password salah';
-    }
+if (!isset($_SESSION['username'])) {
+    header("Location: index.php");
+    exit;
 }
 ?>
 
@@ -49,7 +32,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
           <div class="card-body">
             <h1 class="h3 mb-3 fw-normal text-center">Admin Login</h1>
 
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <form action="Aksi/login.php" method="post">
               <div class="form-floating mb-3">
                 <input name="username" type="text" class="form-control" id="floatingInput" placeholder="name@example.com" required>
                 <label for="floatingInput">Username</label>

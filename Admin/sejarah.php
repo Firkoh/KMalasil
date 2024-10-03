@@ -1,11 +1,13 @@
-<?php 
-if (!isset($_SESSION)) {
-    session_start(); // Mulai sesi jika belum aktif
-}
-
-include '../service/basisdata.php';
-
-?>
+    <?php
+    session_start();
+    if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
+        include 'partials/head.html'?>
+        <?php
+    } else {
+        header("Location: index.php");
+        exit;
+    }
+    ?>
 <?php include 'partials/head.html'?>
 
 <!-- pemisah  -->
