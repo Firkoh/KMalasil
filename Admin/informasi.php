@@ -1,14 +1,15 @@
     <?php
+    include '../service/basisdata.php';
     session_start();
     if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
-        include 'partials/head.html'?>
+        include 'partials/head.php'?>
         <?php
     } else {
         header("Location: index.php");
         exit;
     }
     ?>
-<?php include 'partials/head.html'?>
+
   <div class="container-fluid mt-2">
     <div class="row">
 
@@ -193,4 +194,4 @@
 <script>
   
 </script>
-<?php include 'partials/footer.html'?>
+<?php include 'partials/footer.php'?>

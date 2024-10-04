@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Sep 2024 pada 16.18
+-- Waktu pembuatan: 03 Okt 2024 pada 20.09
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -54,6 +54,14 @@ CREATE TABLE `galeri` (
   `path_file` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `galeri`
+--
+
+INSERT INTO `galeri` (`id`, `nama_gambar`, `path_file`) VALUES
+(26, 'sdl[asld', 'uploads/galeri/IMG_20220417_162723.jpg'),
+(27, 'lasdmlas', 'uploads/galeri/F.png');
+
 -- --------------------------------------------------------
 
 --
@@ -74,8 +82,7 @@ CREATE TABLE `kelurahan` (
 --
 
 INSERT INTO `kelurahan` (`id`, `Jb`, `path_gambar`, `isi`, `penulis`, `created_at`) VALUES
-(11, 'NGERI PARAH', 'uploads/66f8039d4fe98_Merah Firgenius Kolose Hombore.jpg', 'jasodsaodj', 'dmsadosadok', '2024-09-28 22:24:45'),
-(12, 'Masukanya', 'uploads/66f82e86ce0f6_photo biru ig.jpg', 'laskdkdksaldklsadklsakdlsadklsakdlskdlsakdlksadlksdlksaldksaldksaldklsdkl;askdl;sakdlsakdlaskldklasdklsakdlsakdlskdl;askdlaskdlksaldksladk;sakdl;sakdlsakdlksaldlsadl;sakdl;sakdlsakdlsakdlksaldsldksdkdk;fjkldsjfkld', 'dlsakdlsadl', '2024-09-29 01:27:50');
+(29, 'skdoaskdaldmas', 'uploads/informasi/66fecf6d3a08e_IMG_20220417_173535.jpg', 'lsamdldsalmd', 'ldsamddsadlm', '2024-10-04 02:07:57');
 
 -- --------------------------------------------------------
 
@@ -120,6 +127,13 @@ CREATE TABLE `penduduk` (
   `Status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `penduduk`
+--
+
+INSERT INTO `penduduk` (`ID`, `Nik`, `Nama`, `Agama`, `Tempat_Lhr`, `Tanggal_Lhr`, `Jenis_Kelamin`, `Gol_Darah`, `Pendidikan`, `Pekerjaan`, `Status`) VALUES
+(8, 183981923, 'dlasdlasmdl', 'dmsaldmsal', '21lasmdlas', '2002-09-21', 'Laki-laki', 'o', 'SMA', 'ldmsalmd', 'dsadkasmdlmas');
+
 -- --------------------------------------------------------
 
 --
@@ -139,6 +153,13 @@ CREATE TABLE `plurah` (
   `Jabatan` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `plurah`
+--
+
+INSERT INTO `plurah` (`id`, `Nip`, `Nama`, `Agama`, `Tempat_Lhr`, `Tanggal_Lhr`, `Jns_Kelamin`, `Gol_Darah`, `Pendidikan`, `Jabatan`) VALUES
+(2, 20203201, 'asojdosad', 'dsaodsaojd', 'dsadoask', '1990-07-21', '', '0', 'jdojasdo', 'Lurah');
+
 -- --------------------------------------------------------
 
 --
@@ -146,22 +167,11 @@ CREATE TABLE `plurah` (
 --
 
 CREATE TABLE `rtrw` (
-  `id` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL,
   `rt` int(11) DEFAULT NULL,
   `rw` int(11) DEFAULT NULL,
   `jumlah_penduduk` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `rtrw`
---
-
-INSERT INTO `rtrw` (`id`, `rt`, `rw`, `jumlah_penduduk`) VALUES
-(1, 1, 1, '2000'),
-(NULL, 1, 2, '20000'),
-(NULL, 1, 2, '1'),
-(NULL, 1, 2, '1'),
-(NULL, 1, 2, '11');
 
 -- --------------------------------------------------------
 
@@ -229,6 +239,12 @@ ALTER TABLE `plurah`
   ADD UNIQUE KEY `Nip` (`Nip`);
 
 --
+-- Indeks untuk tabel `rtrw`
+--
+ALTER TABLE `rtrw`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `visi_misi`
 --
 ALTER TABLE `visi_misi`
@@ -242,13 +258,13 @@ ALTER TABLE `visi_misi`
 -- AUTO_INCREMENT untuk tabel `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT untuk tabel `kelurahan`
 --
 ALTER TABLE `kelurahan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT untuk tabel `kontak`
@@ -260,13 +276,19 @@ ALTER TABLE `kontak`
 -- AUTO_INCREMENT untuk tabel `penduduk`
 --
 ALTER TABLE `penduduk`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `plurah`
 --
 ALTER TABLE `plurah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `rtrw`
+--
+ALTER TABLE `rtrw`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

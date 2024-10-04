@@ -1,14 +1,13 @@
     <?php
     session_start();
     if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
-        include 'partials/head.html'?>
+        include 'partials/head.php'?>
         <?php
     } else {
         header("Location: index.php");
         exit;
     }
     ?>
-<?php include 'partials/head.html'?>
 <!-- pemisah  -->
   <div class="container-fluid mt-2">
     <div class="row">
@@ -163,5 +162,5 @@
 </div>
 </div>
 <?php
-include 'partials/footer.html';
+include 'partials/footer.php';
 ?>

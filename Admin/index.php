@@ -1,10 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['username'])) {
-    header("Location: index.php");
-    exit;
-}
-?>
 
 <!DOCTYPE html>
 <html lang="id">
@@ -32,7 +25,7 @@ if (!isset($_SESSION['username'])) {
           <div class="card-body">
             <h1 class="h3 mb-3 fw-normal text-center">Admin Login</h1>
 
-            <form action="Aksi/login.php" method="post">
+            <form action="login.php" method="post">
               <div class="form-floating mb-3">
                 <input name="username" type="text" class="form-control" id="floatingInput" placeholder="name@example.com" required>
                 <label for="floatingInput">Username</label>

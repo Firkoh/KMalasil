@@ -8,7 +8,6 @@
         exit;
     }
     ?>
-<?php include 'partials/head.html'?>
 
     <div class="container-fluid mt-2">
       <div class="row">
@@ -86,7 +85,7 @@
           </div>
         </div>
 <!-- tengah -->
-<div class="col-md-9 col-12">
+<div class="col-md-9 col-12" id="hal">
 <div class="row">
             <div class="col-md-6 col-12 text-center border border-2 overflow-auto" style="height: 500px;">
     <?php
